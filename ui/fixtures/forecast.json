@@ -1,0 +1,257 @@
+{
+ "kind": "forecast",
+ "language": "en",
+ "place": {
+  "id": "rohini",
+  "name": {
+   "en": "Rohini, Delhi",
+   "hi": "रोहिणी, दिल्ली"
+  },
+  "lat": 28.74,
+  "lon": 77.11,
+  "match": "exact",
+  "forecast_point": "dhuaan_place"
+ },
+ "now": 1792752574,
+ "run": {
+  "generated_at": 1792752574,
+  "last_pass_utc": 1792741440,
+  "fires_24h": 1012,
+  "clusters": 400,
+  "wind_source": "GFS via Open-Meteo",
+  "stale": false,
+  "replay_date": null
+ },
+ "levels": {
+  "light": 15,
+  "moderate": 35,
+  "heavy": 60
+ },
+ "disclaimer": {
+  "en": "Smoke Index (0–100) is relative, not AQI. Not medical advice.",
+  "hi": "स्मोक इंडेक्स (0–100) तुलनात्मक है, AQI नहीं। यह चिकित्सीय सलाह नहीं है।"
+ },
+ "sources": [
+  {
+   "label": "Tarn Taran",
+   "state": "Punjab",
+   "pct": 31
+  },
+  {
+   "label": "Hafizabad",
+   "state": "Pakistan Punjab",
+   "pct": 16
+  },
+  {
+   "label": "Amritsar",
+   "state": "Punjab",
+   "pct": 9
+  }
+ ],
+ "sources_scope": "place",
+ "level_24h": "moderate",
+ "light_from": 1792789200,
+ "arrival": 1792796400,
+ "clears": 1792818000,
+ "peak": {
+  "t": 1792807200,
+  "index": 57,
+  "level": "moderate"
+ },
+ "series": [
+  {
+   "t": 1792749600,
+   "index": 8,
+   "level": "none"
+  },
+  {
+   "t": 1792753200,
+   "index": 14,
+   "level": "none"
+  },
+  {
+   "t": 1792756800,
+   "index": 13,
+   "level": "none"
+  },
+  {
+   "t": 1792760400,
+   "index": 12,
+   "level": "none"
+  },
+  {
+   "t": 1792764000,
+   "index": 12,
+   "level": "none"
+  },
+  {
+   "t": 1792767600,
+   "index": 11,
+   "level": "none"
+  },
+  {
+   "t": 1792771200,
+   "index": 11,
+   "level": "none"
+  },
+  {
+   "t": 1792774800,
+   "index": 11,
+   "level": "none"
+  },
+  {
+   "t": 1792778400,
+   "index": 11,
+   "level": "none"
+  },
+  {
+   "t": 1792782000,
+   "index": 11,
+   "level": "none"
+  },
+  {
+   "t": 1792785600,
+   "index": 14,
+   "level": "none"
+  },
+  {
+   "t": 1792789200,
+   "index": 23,
+   "level": "light"
+  },
+  {
+   "t": 1792792800,
+   "index": 34,
+   "level": "light"
+  },
+  {
+   "t": 1792796400,
+   "index": 45,
+   "level": "moderate"
+  },
+  {
+   "t": 1792800000,
+   "index": 53,
+   "level": "moderate"
+  },
+  {
+   "t": 1792803600,
+   "index": 56,
+   "level": "moderate"
+  },
+  {
+   "t": 1792807200,
+   "index": 57,
+   "level": "moderate"
+  },
+  {
+   "t": 1792810800,
+   "index": 49,
+   "level": "moderate"
+  },
+  {
+   "t": 1792814400,
+   "index": 38,
+   "level": "moderate"
+  },
+  {
+   "t": 1792818000,
+   "index": 27,
+   "level": "light"
+  },
+  {
+   "t": 1792821600,
+   "index": 18,
+   "level": "light"
+  },
+  {
+   "t": 1792825200,
+   "index": 11,
+   "level": "none"
+  },
+  {
+   "t": 1792828800,
+   "index": 7,
+   "level": "none"
+  },
+  {
+   "t": 1792832400,
+   "index": 5,
+   "level": "none"
+  },
+  {
+   "t": 1792836000,
+   "index": 5,
+   "level": "none"
+  },
+  {
+   "t": 1792839600,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792843200,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792846800,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792850400,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792854000,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792857600,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792861200,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792864800,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792868400,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792872000,
+   "index": 6,
+   "level": "none"
+  },
+  {
+   "t": 1792875600,
+   "index": 6,
+   "level": "none"
+  }
+ ],
+ "advice": {
+  "en": [
+   "Moderate smoke overnight — keep windows shut from 2 AM to 10 AM.",
+   "Sensitive people: skip the early-morning walk."
+  ],
+  "hi": [
+   "रात में मध्यम धुआँ — रात 2 से सुबह 10 बजे तक खिड़कियाँ बंद रखें।",
+   "संवेदनशील लोग सुबह की सैर टालें।"
+  ]
+ },
+ "summary": {
+  "en": "Moderate smoke reaches Rohini overnight, peaking around dawn.",
+  "hi": "रोहिणी में रात को मध्यम धुआँ आएगा, सुबह के आसपास सबसे ज़्यादा।"
+ }
+}

@@ -1,0 +1,1118 @@
+[
+ {
+  "id": "pitampura",
+  "name": {
+   "en": "Pitampura",
+   "hi": "पीतमपुरा"
+  },
+  "aliases": [
+   "pitampura"
+  ],
+  "lat": 28.6959,
+  "lon": 77.1372,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "janakpuri",
+  "name": {
+   "en": "Janakpuri",
+   "hi": "जनकपुरी"
+  },
+  "aliases": [],
+  "lat": 28.6279,
+  "lon": 77.0906,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "saket",
+  "name": {
+   "en": "Saket",
+   "hi": "साकेत"
+  },
+  "aliases": [],
+  "lat": 28.5241,
+  "lon": 77.2067,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "lajpat_nagar",
+  "name": {
+   "en": "Lajpat Nagar",
+   "hi": "लाजपत नगर"
+  },
+  "aliases": [],
+  "lat": 28.5652,
+  "lon": 77.2353,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "mayur_vihar",
+  "name": {
+   "en": "Mayur Vihar",
+   "hi": "मयूर विहार"
+  },
+  "aliases": [],
+  "lat": 28.6102,
+  "lon": 77.2895,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "karol_bagh",
+  "name": {
+   "en": "Karol Bagh",
+   "hi": "करोल बाग"
+  },
+  "aliases": [],
+  "lat": 28.6505,
+  "lon": 77.1887,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "vasant_kunj",
+  "name": {
+   "en": "Vasant Kunj",
+   "hi": "वसंत कुंज"
+  },
+  "aliases": [],
+  "lat": 28.5315,
+  "lon": 77.1502,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "anand_vihar",
+  "name": {
+   "en": "Anand Vihar",
+   "hi": "आनंद विहार"
+  },
+  "aliases": [],
+  "lat": 28.6483,
+  "lon": 77.3178,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "shahdara",
+  "name": {
+   "en": "Shahdara",
+   "hi": "शाहदरा"
+  },
+  "aliases": [],
+  "lat": 28.6786,
+  "lon": 77.2956,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "najafgarh",
+  "name": {
+   "en": "Najafgarh",
+   "hi": "नजफ़गढ़"
+  },
+  "aliases": [],
+  "lat": 28.6251,
+  "lon": 76.9974,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "mundka",
+  "name": {
+   "en": "Mundka",
+   "hi": "मुंडका"
+  },
+  "aliases": [],
+  "lat": 28.6777,
+  "lon": 77.0268,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "wazirpur",
+  "name": {
+   "en": "Wazirpur",
+   "hi": "वज़ीरपुर"
+  },
+  "aliases": [],
+  "lat": 28.6919,
+  "lon": 77.1535,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "ashok_vihar",
+  "name": {
+   "en": "Ashok Vihar",
+   "hi": "अशोक विहार"
+  },
+  "aliases": [],
+  "lat": 28.6918,
+  "lon": 77.1643,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "model_town",
+  "name": {
+   "en": "Model Town",
+   "hi": "मॉडल टाउन"
+  },
+  "aliases": [],
+  "lat": 28.705,
+  "lon": 77.1895,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "punjabi_bagh",
+  "name": {
+   "en": "Punjabi Bagh",
+   "hi": "पंजाबी बाग"
+  },
+  "aliases": [],
+  "lat": 28.6764,
+  "lon": 77.142,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "rajouri_garden",
+  "name": {
+   "en": "Rajouri Garden",
+   "hi": "राजौरी गार्डन"
+  },
+  "aliases": [],
+  "lat": 28.6456,
+  "lon": 77.1221,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "dilshad_garden",
+  "name": {
+   "en": "Dilshad Garden",
+   "hi": "दिलशाद गार्डन"
+  },
+  "aliases": [],
+  "lat": 28.6765,
+  "lon": 77.3223,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "okhla",
+  "name": {
+   "en": "Okhla",
+   "hi": "ओखला"
+  },
+  "aliases": [],
+  "lat": 28.5325,
+  "lon": 77.2784,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "greater_kailash",
+  "name": {
+   "en": "Greater Kailash",
+   "hi": "ग्रेटर कैलाश"
+  },
+  "aliases": [
+   "gk"
+  ],
+  "lat": 28.5484,
+  "lon": 77.2367,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "hauz_khas",
+  "name": {
+   "en": "Hauz Khas",
+   "hi": "हौज़ ख़ास"
+  },
+  "aliases": [],
+  "lat": 28.5511,
+  "lon": 77.204,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "rk_puram",
+  "name": {
+   "en": "R K Puram",
+   "hi": "आर के पुरम"
+  },
+  "aliases": [
+   "rk puram",
+   "r.k. puram"
+  ],
+  "lat": 28.5673,
+  "lon": 77.1828,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "connaught_place",
+  "name": {
+   "en": "Connaught Place",
+   "hi": "कनॉट प्लेस"
+  },
+  "aliases": [
+   "cp"
+  ],
+  "lat": 28.634,
+  "lon": 77.2197,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "chandni_chowk",
+  "name": {
+   "en": "Chandni Chowk",
+   "hi": "चांदनी चौक"
+  },
+  "aliases": [],
+  "lat": 28.7028,
+  "lon": 77.1244,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "burari",
+  "name": {
+   "en": "Burari",
+   "hi": "बुराड़ी"
+  },
+  "aliases": [],
+  "lat": 28.7566,
+  "lon": 77.2069,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "bawana",
+  "name": {
+   "en": "Bawana",
+   "hi": "बवाना"
+  },
+  "aliases": [],
+  "lat": 28.7977,
+  "lon": 77.0453,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "laxmi_nagar",
+  "name": {
+   "en": "Laxmi Nagar",
+   "hi": "लक्ष्मी नगर"
+  },
+  "aliases": [
+   "lakshmi nagar"
+  ],
+  "lat": 28.6388,
+  "lon": 77.2759,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "preet_vihar",
+  "name": {
+   "en": "Preet Vihar",
+   "hi": "प्रीत विहार"
+  },
+  "aliases": [],
+  "lat": 28.639,
+  "lon": 77.296,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "tilak_nagar",
+  "name": {
+   "en": "Tilak Nagar",
+   "hi": "तिलक नगर"
+  },
+  "aliases": [],
+  "lat": 28.6409,
+  "lon": 77.0892,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "uttam_nagar",
+  "name": {
+   "en": "Uttam Nagar",
+   "hi": "उत्तम नगर"
+  },
+  "aliases": [],
+  "lat": 28.6174,
+  "lon": 77.0528,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "paschim_vihar",
+  "name": {
+   "en": "Paschim Vihar",
+   "hi": "पश्चिम विहार"
+  },
+  "aliases": [],
+  "lat": 28.6695,
+  "lon": 77.0979,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "shalimar_bagh",
+  "name": {
+   "en": "Shalimar Bagh",
+   "hi": "शालीमार बाग"
+  },
+  "aliases": [],
+  "lat": 28.7142,
+  "lon": 77.1574,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "jahangirpuri",
+  "name": {
+   "en": "Jahangirpuri",
+   "hi": "जहांगीरपुरी"
+  },
+  "aliases": [],
+  "lat": 28.7274,
+  "lon": 77.1808,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "chanakyapuri",
+  "name": {
+   "en": "Chanakyapuri",
+   "hi": "चाणक्यपुरी"
+  },
+  "aliases": [],
+  "lat": 28.5951,
+  "lon": 77.1857,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "defence_colony",
+  "name": {
+   "en": "Defence Colony",
+   "hi": "डिफ़ेंस कॉलोनी"
+  },
+  "aliases": [],
+  "lat": 28.573,
+  "lon": 77.2336,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "kalkaji",
+  "name": {
+   "en": "Kalkaji",
+   "hi": "कालकाजी"
+  },
+  "aliases": [],
+  "lat": 28.5369,
+  "lon": 77.261,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "mehrauli",
+  "name": {
+   "en": "Mehrauli",
+   "hi": "महरौली"
+  },
+  "aliases": [],
+  "lat": 28.5211,
+  "lon": 77.1802,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "narela_town",
+  "name": {
+   "en": "Narela",
+   "hi": "नरेला"
+  },
+  "aliases": [],
+  "lat": 28.8398,
+  "lon": 77.0769,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "vivek_vihar",
+  "name": {
+   "en": "Vivek Vihar",
+   "hi": "विवेक विहार"
+  },
+  "aliases": [],
+  "lat": 28.667,
+  "lon": 77.3064,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "patparganj",
+  "name": {
+   "en": "Patparganj",
+   "hi": "पटपड़गंज"
+  },
+  "aliases": [],
+  "lat": 28.6295,
+  "lon": 77.3076,
+  "state": "Delhi",
+  "src": "amazon-location"
+ },
+ {
+  "id": "greater_noida",
+  "name": {
+   "en": "Greater Noida",
+   "hi": "ग्रेटर नोएडा"
+  },
+  "aliases": [],
+  "lat": 28.4876,
+  "lon": 77.4957,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "noida_sector_18",
+  "name": {
+   "en": "Noida Sector 18",
+   "hi": "नोएडा सेक्टर 18"
+  },
+  "aliases": [
+   "sector 18 noida",
+   "sector 18"
+  ],
+  "lat": 28.5702,
+  "lon": 77.3239,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "noida_sector_62",
+  "name": {
+   "en": "Noida Sector 62",
+   "hi": "नोएडा सेक्टर 62"
+  },
+  "aliases": [
+   "sector 62 noida",
+   "sector 62"
+  ],
+  "lat": 28.621,
+  "lon": 77.3648,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "noida_sector_137",
+  "name": {
+   "en": "Noida Sector 137",
+   "hi": "नोएडा सेक्टर 137"
+  },
+  "aliases": [
+   "sector 137 noida",
+   "sector 137"
+  ],
+  "lat": 28.5137,
+  "lon": 77.4058,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "indirapuram",
+  "name": {
+   "en": "Indirapuram",
+   "hi": "इंदिरापुरम"
+  },
+  "aliases": [],
+  "lat": 28.6395,
+  "lon": 77.3627,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "kaushambi",
+  "name": {
+   "en": "Kaushambi, Ghaziabad",
+   "hi": "कौशांबी, ग़ाज़ियाबाद"
+  },
+  "aliases": [
+   "kaushambi"
+  ],
+  "lat": 28.6412,
+  "lon": 77.3208,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "faridabad_nit",
+  "name": {
+   "en": "Faridabad NIT",
+   "hi": "फ़रीदाबाद एनआईटी"
+  },
+  "aliases": [
+   "nit faridabad"
+  ],
+  "lat": 28.3605,
+  "lon": 77.2813,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "ballabgarh",
+  "name": {
+   "en": "Ballabgarh",
+   "hi": "बल्लभगढ़"
+  },
+  "aliases": [],
+  "lat": 28.2937,
+  "lon": 77.3109,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "manesar",
+  "name": {
+   "en": "Manesar",
+   "hi": "मानेसर"
+  },
+  "aliases": [],
+  "lat": 28.372,
+  "lon": 76.9247,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "sohna",
+  "name": {
+   "en": "Sohna",
+   "hi": "सोहना"
+  },
+  "aliases": [],
+  "lat": 28.2496,
+  "lon": 77.0748,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "bahadurgarh",
+  "name": {
+   "en": "Bahadurgarh",
+   "hi": "बहादुरगढ़"
+  },
+  "aliases": [],
+  "lat": 28.6938,
+  "lon": 76.9327,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "jhajjar",
+  "name": {
+   "en": "Jhajjar",
+   "hi": "झज्जर"
+  },
+  "aliases": [],
+  "lat": 28.6077,
+  "lon": 76.6525,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "kundli",
+  "name": {
+   "en": "Kundli",
+   "hi": "कुंडली"
+  },
+  "aliases": [],
+  "lat": 28.8685,
+  "lon": 77.1361,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "dlf_cyber_city",
+  "name": {
+   "en": "DLF Cyber City, Gurugram",
+   "hi": "डीएलएफ़ साइबर सिटी, गुरुग्राम"
+  },
+  "aliases": [
+   "cyber city"
+  ],
+  "lat": 28.4959,
+  "lon": 77.0879,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "mohali",
+  "name": {
+   "en": "Mohali",
+   "hi": "मोहाली"
+  },
+  "aliases": [
+   "sas nagar"
+  ],
+  "lat": 30.7035,
+  "lon": 76.6917,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "zirakpur",
+  "name": {
+   "en": "Zirakpur",
+   "hi": "ज़ीरकपुर"
+  },
+  "aliases": [],
+  "lat": 30.6584,
+  "lon": 76.8209,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "kharar",
+  "name": {
+   "en": "Kharar",
+   "hi": "खरड़"
+  },
+  "aliases": [],
+  "lat": 30.7495,
+  "lon": 76.6417,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "rajpura",
+  "name": {
+   "en": "Rajpura",
+   "hi": "राजपुरा"
+  },
+  "aliases": [],
+  "lat": 30.4759,
+  "lon": 76.5897,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "khanna",
+  "name": {
+   "en": "Khanna",
+   "hi": "खन्ना"
+  },
+  "aliases": [],
+  "lat": 30.708,
+  "lon": 76.2141,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "moga",
+  "name": {
+   "en": "Moga",
+   "hi": "मोगा"
+  },
+  "aliases": [],
+  "lat": 30.8189,
+  "lon": 75.1777,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "ferozepur",
+  "name": {
+   "en": "Ferozepur",
+   "hi": "फ़िरोज़पुर"
+  },
+  "aliases": [
+   "firozpur"
+  ],
+  "lat": 30.6661,
+  "lon": 76.3473,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "faridkot",
+  "name": {
+   "en": "Faridkot",
+   "hi": "फ़रीदकोट"
+  },
+  "aliases": [],
+  "lat": 30.6555,
+  "lon": 74.7695,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "muktsar",
+  "name": {
+   "en": "Muktsar",
+   "hi": "मुक्तसर"
+  },
+  "aliases": [
+   "sri muktsar sahib"
+  ],
+  "lat": 30.4869,
+  "lon": 74.5532,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "mansa",
+  "name": {
+   "en": "Mansa",
+   "hi": "मानसा"
+  },
+  "aliases": [],
+  "lat": 29.9908,
+  "lon": 75.4,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "barnala",
+  "name": {
+   "en": "Barnala",
+   "hi": "बरनाला"
+  },
+  "aliases": [],
+  "lat": 30.3639,
+  "lon": 75.5257,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "fazilka",
+  "name": {
+   "en": "Fazilka",
+   "hi": "फ़ाज़िल्का"
+  },
+  "aliases": [],
+  "lat": 30.4088,
+  "lon": 74.0347,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "hoshiarpur",
+  "name": {
+   "en": "Hoshiarpur",
+   "hi": "होशियारपुर"
+  },
+  "aliases": [],
+  "lat": 31.5324,
+  "lon": 75.9053,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "kapurthala",
+  "name": {
+   "en": "Kapurthala",
+   "hi": "कपूरथला"
+  },
+  "aliases": [],
+  "lat": 31.378,
+  "lon": 75.3912,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "phagwara",
+  "name": {
+   "en": "Phagwara",
+   "hi": "फगवाड़ा"
+  },
+  "aliases": [],
+  "lat": 31.2245,
+  "lon": 75.7691,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "tarn_taran",
+  "name": {
+   "en": "Tarn Taran",
+   "hi": "तरन तारन"
+  },
+  "aliases": [],
+  "lat": 31.4596,
+  "lon": 74.9221,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "malerkotla",
+  "name": {
+   "en": "Malerkotla",
+   "hi": "मलेरकोटला"
+  },
+  "aliases": [],
+  "lat": 30.5311,
+  "lon": 75.8887,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "fatehgarh_sahib",
+  "name": {
+   "en": "Fatehgarh Sahib",
+   "hi": "फ़तेहगढ़ साहिब"
+  },
+  "aliases": [
+   "sirhind"
+  ],
+  "lat": 30.6422,
+  "lon": 76.3767,
+  "state": "Punjab",
+  "src": "amazon-location"
+ },
+ {
+  "id": "panchkula",
+  "name": {
+   "en": "Panchkula",
+   "hi": "पंचकूला"
+  },
+  "aliases": [],
+  "lat": 30.7046,
+  "lon": 76.8639,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "jind",
+  "name": {
+   "en": "Jind",
+   "hi": "जींद"
+  },
+  "aliases": [],
+  "lat": 29.3165,
+  "lon": 76.3208,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "kaithal",
+  "name": {
+   "en": "Kaithal",
+   "hi": "कैथल"
+  },
+  "aliases": [],
+  "lat": 29.7974,
+  "lon": 76.3776,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "fatehabad",
+  "name": {
+   "en": "Fatehabad",
+   "hi": "फ़तेहाबाद"
+  },
+  "aliases": [],
+  "lat": 29.5139,
+  "lon": 75.4498,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "sirsa",
+  "name": {
+   "en": "Sirsa",
+   "hi": "सिरसा"
+  },
+  "aliases": [],
+  "lat": 29.5396,
+  "lon": 75.031,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "bhiwani",
+  "name": {
+   "en": "Bhiwani",
+   "hi": "भिवानी"
+  },
+  "aliases": [],
+  "lat": 28.7956,
+  "lon": 76.1462,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "rewari",
+  "name": {
+   "en": "Rewari",
+   "hi": "रेवाड़ी"
+  },
+  "aliases": [],
+  "lat": 28.2008,
+  "lon": 76.6107,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "yamunanagar",
+  "name": {
+   "en": "Yamunanagar",
+   "hi": "यमुनानगर"
+  },
+  "aliases": [
+   "yamuna nagar"
+  ],
+  "lat": 30.1467,
+  "lon": 77.2896,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "jagadhri",
+  "name": {
+   "en": "Jagadhri",
+   "hi": "जगाधरी"
+  },
+  "aliases": [],
+  "lat": 30.2053,
+  "lon": 77.1519,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "narnaul",
+  "name": {
+   "en": "Narnaul",
+   "hi": "नारनौल"
+  },
+  "aliases": [],
+  "lat": 28.0538,
+  "lon": 76.1055,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "palwal",
+  "name": {
+   "en": "Palwal",
+   "hi": "पलवल"
+  },
+  "aliases": [],
+  "lat": 28.1426,
+  "lon": 77.3344,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "hansi",
+  "name": {
+   "en": "Hansi",
+   "hi": "हांसी"
+  },
+  "aliases": [],
+  "lat": 29.0959,
+  "lon": 75.9679,
+  "state": "Haryana",
+  "src": "amazon-location"
+ },
+ {
+  "id": "baghpat",
+  "name": {
+   "en": "Baghpat",
+   "hi": "बाग़पत"
+  },
+  "aliases": [],
+  "lat": 28.9452,
+  "lon": 77.2207,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "bulandshahr",
+  "name": {
+   "en": "Bulandshahr",
+   "hi": "बुलंदशहर"
+  },
+  "aliases": [],
+  "lat": 28.4097,
+  "lon": 77.8501,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "hapur",
+  "name": {
+   "en": "Hapur",
+   "hi": "हापुड़"
+  },
+  "aliases": [],
+  "lat": 28.7387,
+  "lon": 77.7919,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "shamli",
+  "name": {
+   "en": "Shamli",
+   "hi": "शामली"
+  },
+  "aliases": [],
+  "lat": 29.4448,
+  "lon": 77.3171,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "modinagar",
+  "name": {
+   "en": "Modinagar",
+   "hi": "मोदीनगर"
+  },
+  "aliases": [],
+  "lat": 28.8363,
+  "lon": 77.5769,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "aligarh",
+  "name": {
+   "en": "Aligarh",
+   "hi": "अलीगढ़"
+  },
+  "aliases": [],
+  "lat": 27.8863,
+  "lon": 78.0738,
+  "state": "Uttar Pradesh",
+  "src": "amazon-location"
+ },
+ {
+  "id": "hanumangarh",
+  "name": {
+   "en": "Hanumangarh",
+   "hi": "हनुमानगढ़"
+  },
+  "aliases": [],
+  "lat": 29.6103,
+  "lon": 74.2948,
+  "state": "Rajasthan",
+  "src": "amazon-location"
+ }
+]

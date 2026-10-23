@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "dhuaan-alexa-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,12 +7,17 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "embed": "node scripts/embed.mjs",
+    "build": "npm run embed && node esbuild.mjs",
+    "start": "node dist/local.cjs",
+    "dev": "npm run embed && tsx src/local.ts",
+    "test": "npm run embed && vitest run",
+    "typecheck": "tsc"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
     "@aws-sdk/client-geo-places": "3.1156.0",
     "@aws-sdk/client-s3": "3.1156.0",
@@ -31,5 +36,6 @@
     "tsx": "4.23.15",
     "typescript": "7.0.2",
     "vitest": "5.0.5"
-  }
+  },
+  "private": true
 }

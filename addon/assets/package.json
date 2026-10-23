@@ -1,0 +1,7 @@
+{
+  "name": "dhuaan-alexa-assets",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node make-assets.mjs" },
+  "dependencies": { "sharp": "0.34.4" }
+}

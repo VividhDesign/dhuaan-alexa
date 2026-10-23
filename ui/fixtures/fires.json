@@ -1,0 +1,92 @@
+{
+ "kind": "fires",
+ "language": "en",
+ "place": {
+  "id": "rohini",
+  "name": {
+   "en": "Rohini, Delhi",
+   "hi": "रोहिणी, दिल्ली"
+  },
+  "lat": 28.74,
+  "lon": 77.11,
+  "match": "exact",
+  "forecast_point": "dhuaan_place"
+ },
+ "now": 1792752574,
+ "run": {
+  "generated_at": 1792752574,
+  "last_pass_utc": 1792741440,
+  "fires_24h": 1012,
+  "clusters": 400,
+  "wind_source": "GFS via Open-Meteo",
+  "stale": false,
+  "replay_date": null
+ },
+ "levels": {
+  "light": 15,
+  "moderate": 35,
+  "heavy": 60
+ },
+ "disclaimer": {
+  "en": "Smoke Index (0–100) is relative, not AQI. Not medical advice.",
+  "hi": "स्मोक इंडेक्स (0–100) तुलनात्मक है, AQI नहीं। यह चिकित्सीय सलाह नहीं है।"
+ },
+ "sources_scope": "region",
+ "fires": {
+  "fires_24h": 1012,
+  "by_state": {
+   "Rajasthan": 160,
+   "Pakistan Punjab": 539,
+   "Punjab": 237,
+   "Haryana": 21,
+   "Uttar Pradesh": 36,
+   "Uttarakhand": 2,
+   "Himachal Pradesh": 3
+  },
+  "clusters": 400,
+  "last_pass_utc": 1792741440,
+  "top25_share_delhi_pct": 62,
+  "top": [
+   {
+    "label": "near Hafizabad",
+    "district": "Hafizabad",
+    "state": "Pakistan Punjab",
+    "n_fires": 13,
+    "frp_mw": 147.1,
+    "impact_people_hours": 5024086
+   },
+   {
+    "label": "near Hafizabad",
+    "district": "Hafizabad",
+    "state": "Pakistan Punjab",
+    "n_fires": 6,
+    "frp_mw": 66.1,
+    "impact_people_hours": 2614032
+   },
+   {
+    "label": "near Lahore",
+    "district": "Lahore",
+    "state": "Pakistan Punjab",
+    "n_fires": 3,
+    "frp_mw": 35.6,
+    "impact_people_hours": 2426715
+   },
+   {
+    "label": "near Tarn Taran",
+    "district": "Tarn Taran",
+    "state": "Punjab",
+    "n_fires": 1,
+    "frp_mw": 26.4,
+    "impact_people_hours": 2274559
+   },
+   {
+    "label": "near Gurugram",
+    "district": "Gurugram",
+    "state": "Haryana",
+    "n_fires": 1,
+    "frp_mw": 9.1,
+    "impact_people_hours": 2053004
+   }
+  ]
+ }
+}
