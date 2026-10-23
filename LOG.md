@@ -1,7 +1,7 @@
 # Build log: Dhuaan for Alexa+ (23 Oct 2026, IST)
 
 ## Now
-Plan B (decided 19:47): a local web "Alexa+ experience simulator", the track's own suggested path ("simulate an Alexa+ experience using your preferred agentic tools via a web app", Devpost resources page). Strands Agents + gemma4:12b (Ollama, local) as the orchestrator, Amazon Polly Kajal for voice, and the Echo Show card in a real MCP Apps host (AppBridge). Subagent A: sim frontend. Subagent C: eval on Gemma (v1), then the sim backend.
+Executing `~/Projects/BUILD_PLAN_amazon_v2.md` (written 19:55 by the planning session; an Opus 5.5 medium session implements). Plan B (decided 19:47): a local web "Alexa+ experience simulator", the track's own suggested path ("simulate an Alexa+ experience using your preferred agentic tools via a web app", Devpost resources page). Strands Agents + gemma4:12b (Ollama, local) as the orchestrator, Amazon Polly Kajal for voice, and the Echo Show card in a real MCP Apps host (AppBridge). Subagent A: sim frontend. Subagent C: eval on Gemma (v1), then the sim backend.
 
 ## Done
 - 19:18 Read plan. Fetched live data: run generated 16:19 IST, fires_24h 1012, 400 clusters. All 29 places none/light (max index 29, Jalandhar). No moderate smoke anywhere today, so the heavy demo uses replay 2025-10-31.
@@ -32,6 +32,7 @@ Plan B (decided 19:47): a local web "Alexa+ experience simulator", the track's o
 
 ## Numbers
 - fires_24h: 1012 (run 16:19 IST), then 1228 (next run, seen 19:29 IST).
+- Eval v1 (19:52–19:53, gemma4:12b via Ollama local, Strands, 24 utterances): tool 95.8% (23/24; en 8/9, hi 8/8, Hinglish 7/7), place 100% (18/18), activity 100% (11/11), kind 80% (4/5), answers with a time 52.6% (10/19; live data had no arriving smoke), agent p50/p95 2.89/3.69 s, tool p50/p95 0.116/0.20 s. Miss: "Will smoke reach Mumbai?" got no tool call.
 - Latency, laptop → ap-south-1, tools/call get_smoke_forecast, 50 calls each (first call excluded from percentiles):
   - run 1: first 215 ms, p50 72 ms, p95 97 ms, max 137 ms
   - run 2: first 210 ms, p50 71 ms, p95 88 ms, max 109 ms
