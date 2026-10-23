@@ -164,9 +164,9 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "boto3" },
-    { name = "mcp" },
-    { name = "strands-agents" },
+    { name = "boto3", specifier = "==1.43.118" },
+    { name = "mcp", specifier = "==2.1.1" },
+    { name = "strands-agents", specifier = "==1.62.0" },
 ]
 
 [[package]]
