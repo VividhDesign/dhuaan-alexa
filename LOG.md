@@ -48,4 +48,5 @@ Executing `~/Projects/BUILD_PLAN_amazon_v2.md` (written 19:55 by the planning se
 - 20:23 Rehearsal by Vividh in Chrome: all 8 utterances run fine, Kajal audible. Freeze 22:30.
 - 20:50 Fix: follow-up answered in romanised Hindi after a Hindi turn in the same session; skill rule 6 now says reply in the language of the latest message. Verified: Hindi then English turns reply in English.
 - 20:57 sim_server pins the reply language per turn (Devanagari/Hinglish -> Hindi, else English) after a follow-up drifted into Hindi. 3/3 English follow-ups after a Hindi turn.
-- 21:21 Video uploaded (2:55): https://youtu.be/R1BNnfbjwjdA (visibility to be set Public by Vividh).
+- 21:21 Video uploaded (2:55): https://youtu.be/R1BNnfbwjdA (visibility to be set Public by Vividh).
+- 22:41 Devpost submitted (history shows Build, Ship, Shape; video https://youtu.be/R1BNnfbwjdA). T9 checks: repo public MIT, README images 200, no Pending, health/privacy/terms 200, smoke test OK.
