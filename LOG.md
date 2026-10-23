@@ -19,8 +19,12 @@ Waiting on Vividh for the Alexa CLI setup (`scripts/alexa-setup.sh`). Subagent C
 - 19:36 Tests: 44 passing (forecast maths, parity with Dhuaan's precomputed arrival/clears/peak for 3 places, windows, place resolution, protocol). **G1 passed.** Fixes from tests: "Delhi" resolved to Narela (alias precedence), and JSON-RPC batches were accepted on the 2025 path (now 400).
 - 19:34 Subagent C (eval harness + Plan B chat) started.
 
+- 19:39 Vividh ran `scripts/alexa-setup.sh`. The inline policy was added; AssumeRole was denied by Amazon's role (friction F6). vividh-cli already has AdministratorAccess, so the denial is the role's trust policy. `@alexa-ai/cli` isn't on public npm (404). **G0 failed → Plan B.**
+- 19:38 Subagent C: eval harness built. Bedrock returns "Operation not allowed" for every model (NOT_AUTHORIZED, friction F5).
+
 ## Blocked
-- Alexa CLI setup waits on Vividh running `scripts/alexa-setup.sh` (G0 at 20:15).
+- Alexa CLI: Amazon's role doesn't trust our account (F6). No fix tonight.
+- Bedrock: account NOT_AUTHORIZED (F5). Needs a console fix by Vividh.
 
 ## Numbers
 - fires_24h: 1012 (run 16:19 IST), then 1228 (next run, seen 19:29 IST).
