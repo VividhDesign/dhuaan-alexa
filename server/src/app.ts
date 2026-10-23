@@ -39,6 +39,9 @@ export function createApp(log?: ToolLogger) {
       if (origin && !ALLOWED_ORIGINS.test(origin)) return json({ error: "origin not allowed" }, 403);
       if (req.method !== "POST")
         return json({ jsonrpc: "2.0", error: { code: -32000, message: "Method not allowed." }, id: null }, 405, { allow: "POST" });
+      // JSON-RPC batches were removed from MCP in 2025-06-18; reject them explicitly
+      if ((await req.clone().text()).trimStart().startsWith("["))
+        return json({ jsonrpc: "2.0", error: { code: -32600, message: "Batch requests are not supported." }, id: null }, 400);
       if (await isLegacyRequest(req)) return legacy(req);
       return mcp.fetch(req); // 2026-07-28 clients
 

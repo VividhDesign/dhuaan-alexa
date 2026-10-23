@@ -1,0 +1,6 @@
+[project]
+name = "dhuaan-eval"
+version = "0.1.0"
+description = "Eval harness for Dhuaan MCP server with a stand-in orchestrator (Nova 2 Lite via Strands)"
+requires-python = ">=3.12,<3.13"
+dependencies = ["strands-agents", "mcp", "boto3"]

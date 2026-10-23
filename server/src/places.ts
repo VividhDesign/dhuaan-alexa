@@ -74,8 +74,10 @@ function buildIndex(dhuaan: DhuaanPlace[]) {
     const k = normalize(key);
     if (k && !entries.some((e) => e.key === k)) entries.push({ key: k, id, kind });
   };
+  for (const p of dhuaan) byId.set(p.id, { ...p, dhuaan: true });
+  // explicit aliases first, so "Delhi" means central Delhi and not the first place whose name ends in ", Delhi"
+  for (const [k, id] of Object.entries(DHUAAN_ALIASES)) if (byId.has(id)) add(k, id, "alias");
   for (const p of dhuaan) {
-    byId.set(p.id, { ...p, dhuaan: true });
     add(p.name.en, p.id, "exact");
     add(p.name.hi, p.id, "exact");
     // "Rohini, Delhi" -> "rohini"; "Narela–Bawana, Delhi" -> "narela", "bawana"
@@ -91,7 +93,6 @@ function buildIndex(dhuaan: DhuaanPlace[]) {
     for (const a of g.aliases ?? []) add(a, g.id, "alias");
     add(g.id.replace(/_/g, " "), g.id, "alias");
   }
-  for (const [k, id] of Object.entries(DHUAAN_ALIASES)) if (byId.has(id)) add(k, id, "alias");
   return { entries, byId };
 }
 

@@ -7,4 +7,3 @@ eval/.venv/
 data-cache/
 .DS_Store
 samconfig.toml
-src/generated/

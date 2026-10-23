@@ -1,5 +1,6 @@
 // AWS Lambda entry: API Gateway HTTP API (payload v2) event -> Web Request -> Response.
 import { createApp } from "./app.js";
+import { getLatest } from "./data.js";
 
 const app = createApp();
 
@@ -8,7 +9,8 @@ interface HttpEvent {
   requestContext: { http: { method: string }; domainName: string };
 }
 
-export async function handler(event: HttpEvent) {
+export async function handler(event: HttpEvent | { warmup: true }) {
+  if ("warmup" in event) { await getLatest(); return { ok: true }; } // scheduled keep-warm ping
   const method = event.requestContext.http.method;
   const qs = event.rawQueryString ? `?${event.rawQueryString}` : "";
   const body = event.body ? Buffer.from(event.body, event.isBase64Encoded ? "base64" : "utf-8") : undefined;

@@ -1,0 +1,24 @@
+{"id": "en01", "lang": "en", "text": "Will smoke reach Rohini tonight?", "expect_tool": "get_smoke_forecast", "expect_place": "rohini", "expect_activity": null, "expect_kind": null}
+{"id": "en02", "lang": "en", "text": "How bad will the air be in Gurgaon tomorrow morning?", "expect_tool": "get_smoke_forecast", "expect_place": "gurugram", "expect_activity": null, "expect_kind": null}
+{"id": "en03", "lang": "en", "text": "When can my kids play outside in Noida tomorrow?", "expect_tool": "find_clean_air_window", "expect_place": "noida", "expect_activity": "kids_play", "expect_kind": null}
+{"id": "en04", "lang": "en", "text": "When should I open the windows in Faridabad?", "expect_tool": "find_clean_air_window", "expect_place": "faridabad", "expect_activity": "ventilate", "expect_kind": null}
+{"id": "en05", "lang": "en", "text": "Should our school in Dwarka hold assembly outdoors tomorrow?", "expect_tool": "find_clean_air_window", "expect_place": "dwarka", "expect_activity": "school_morning", "expect_kind": null}
+{"id": "en06", "lang": "en", "text": "How many stubble fires today?", "expect_tool": "get_farm_fire_activity", "expect_place": null, "expect_activity": null, "expect_kind": "fires"}
+{"id": "en07", "lang": "en", "text": "What's the best time to go for a run in Patiala tomorrow?", "expect_tool": "find_clean_air_window", "expect_place": "patiala", "expect_activity": "run", "expect_kind": null}
+{"id": "en08", "lang": "en", "text": "Will smoke reach Mumbai?", "expect_tool": "get_smoke_forecast", "expect_place": null, "expect_activity": null, "expect_kind": "out_of_area"}
+{"id": "en09", "lang": "en", "text": "Is the air bad?", "expect_tool": null, "expect_place": null, "expect_activity": null, "expect_kind": "clarify"}
+{"id": "hi01", "lang": "hi", "text": "क्या आज रात रोहिणी में धुआँ आएगा?", "expect_tool": "get_smoke_forecast", "expect_place": "rohini", "expect_activity": null, "expect_kind": null}
+{"id": "hi02", "lang": "hi", "text": "पटियाला में खिड़कियाँ कब खोलूँ?", "expect_tool": "find_clean_air_window", "expect_place": "patiala", "expect_activity": "ventilate", "expect_kind": null}
+{"id": "hi03", "lang": "hi", "text": "आज पंजाब में कितनी पराली जली?", "expect_tool": "get_farm_fire_activity", "expect_place": null, "expect_activity": null, "expect_kind": "fires"}
+{"id": "hi04", "lang": "hi", "text": "कल सुबह गुरुग्राम में हवा कैसी रहेगी?", "expect_tool": "get_smoke_forecast", "expect_place": "gurugram", "expect_activity": null, "expect_kind": null}
+{"id": "hi05", "lang": "hi", "text": "नोएडा में बच्चों को बाहर खेलने कब भेजूँ?", "expect_tool": "find_clean_air_window", "expect_place": "noida", "expect_activity": "kids_play", "expect_kind": null}
+{"id": "hi06", "lang": "hi", "text": "द्वारका में सैर के लिए सबसे अच्छा समय कब है?", "expect_tool": "find_clean_air_window", "expect_place": "dwarka", "expect_activity": "walk", "expect_kind": null}
+{"id": "hi07", "lang": "hi", "text": "फरीदाबाद में धुआँ कहाँ से आ रहा है?", "expect_tool": "get_smoke_forecast", "expect_place": "faridabad", "expect_activity": null, "expect_kind": null}
+{"id": "hi08", "lang": "hi", "text": "हरियाणा में आज कितने खेतों में आग लगी?", "expect_tool": "get_farm_fire_activity", "expect_place": null, "expect_activity": null, "expect_kind": "fires"}
+{"id": "hg01", "lang": "hinglish", "text": "Kal subah Noida mein smoke kitna hoga?", "expect_tool": "get_smoke_forecast", "expect_place": "noida", "expect_activity": null, "expect_kind": null}
+{"id": "hg02", "lang": "hinglish", "text": "Gurgaon mein walk ke liye best time kya hai?", "expect_tool": "find_clean_air_window", "expect_place": "gurugram", "expect_activity": "walk", "expect_kind": null}
+{"id": "hg03", "lang": "hinglish", "text": "Rohini mein aaj raat dhuaan aayega kya?", "expect_tool": "get_smoke_forecast", "expect_place": "rohini", "expect_activity": null, "expect_kind": null}
+{"id": "hg04", "lang": "hinglish", "text": "Faridabad mein bacchon ko bahar khelne kab bhejun?", "expect_tool": "find_clean_air_window", "expect_place": "faridabad", "expect_activity": "kids_play", "expect_kind": null}
+{"id": "hg05", "lang": "hinglish", "text": "Punjab mein aaj kitni parali jali?", "expect_tool": "get_farm_fire_activity", "expect_place": null, "expect_activity": null, "expect_kind": "fires"}
+{"id": "hg06", "lang": "hinglish", "text": "Dwarka mein ghar ki khidkiyan kab kholun?", "expect_tool": "find_clean_air_window", "expect_place": "dwarka", "expect_activity": "ventilate", "expect_kind": null}
+{"id": "hg07", "lang": "hinglish", "text": "Connaught Place mein kal subah jogging kab karun?", "expect_tool": "find_clean_air_window", "expect_place": "connaught_place", "expect_activity": "run", "expect_kind": null}

@@ -1,0 +1,69 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Dhuaan for Alexa+ - self-hosted MCP server (Streamable HTTP, protocol 2025-11-25) reading Dhuaan's forecast from S3.
+
+Parameters:
+  DataBucket:
+    Type: String
+    Default: dhuaan-databucket-o1xqkodhjli1
+  DataPrefix:
+    Type: String
+    Default: public/
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures: [arm64]
+
+Resources:
+  McpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 50
+        ThrottlingRateLimit: 20
+
+  McpFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../server/dist
+      Handler: lambda.handler
+      MemorySize: 1024
+      Timeout: 10
+      AutoPublishAlias: live
+      LoggingConfig:
+        LogGroup: !Ref McpLogs
+      Environment:
+        Variables:
+          DATA_BUCKET: !Ref DataBucket
+          DATA_PREFIX: !Ref DataPrefix
+          NODE_OPTIONS: --enable-source-maps
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref DataBucket
+        - Statement:
+            - Effect: Allow
+              Action: ["geo-places:Geocode"]
+              Resource: "*"
+      Events:
+        Mcp:     { Type: HttpApi, Properties: { ApiId: !Ref McpApi, Path: /mcp,     Method: ANY } }
+        Health:  { Type: HttpApi, Properties: { ApiId: !Ref McpApi, Path: /health,  Method: GET } }
+        Privacy: { Type: HttpApi, Properties: { ApiId: !Ref McpApi, Path: /privacy, Method: GET } }
+        Terms:   { Type: HttpApi, Properties: { ApiId: !Ref McpApi, Path: /terms,   Method: GET } }
+        Root:    { Type: HttpApi, Properties: { ApiId: !Ref McpApi, Path: /,        Method: GET } }
+        # Provisioned concurrency is not possible on this account (concurrency limit 10 = the unreserved minimum),
+        # so a 5-minute ping keeps one instance and its forecast cache warm.
+        Warm:
+          Type: Schedule
+          Properties: { Schedule: rate(5 minutes), Input: '{"warmup":true}' }
+
+  McpLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      RetentionInDays: 30
+
+Outputs:
+  McpUrl:
+    Value: !Sub "https://${McpApi}.execute-api.${AWS::Region}.amazonaws.com/mcp"
+  ApiUrl:
+    Value: !Sub "https://${McpApi}.execute-api.${AWS::Region}.amazonaws.com"
