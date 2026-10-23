@@ -1,0 +1,9 @@
+.env
+node_modules/
+dist/
+.aws-sam/
+.alexa-ai/
+eval/.venv/
+data-cache/
+.DS_Store
+samconfig.toml
