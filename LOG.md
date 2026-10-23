@@ -45,3 +45,4 @@ Executing `~/Projects/BUILD_PLAN_amazon_v2.md` (written 19:55 by the planning se
 - 20:20 Screenshots retaken against the real backend: docs/img/sim-forecast.png, sim-hindi.png, sim-school.png, sim-fires.png. Synthetic fixture renamed forecast-replay-synthetic.json.
 - 20:40 README (simulator section, eval table, add-on status, AWS table), docs/FEEDBACK.md and SUBMISSION Q1–Q5 + placeholders done. Left: {{VIDEO}}, {{FIRES_TODAY}} on recording day (1,228 at 20:12 IST), gallery images 5–7.
 - 20:45 Gallery images: docs/img/architecture.png, eval-latency.png. Replay map image still needed from the Dhuaan web app (Vividh).
+- 20:23 Rehearsal by Vividh in Chrome: all 8 utterances run fine, Kajal audible. Freeze 22:30.
