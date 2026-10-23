@@ -243,6 +243,7 @@ async function ask(text: string) {
 
 async function resetSession() {
   try { await api("/api/reset", { session_id: sessionId }); } catch (e) { console.warn(e); }
+  $<HTMLSelectElement>("mic-lang").value = "en-IN";
   sessionId = newSessionId();
   $("log").innerHTML = "";
   audio?.pause();
@@ -281,6 +282,7 @@ function setupMic() {
 $("logo").innerHTML = logoSvg;
 $<HTMLFormElement>("form").addEventListener("submit", (e) => { e.preventDefault(); void ask($<HTMLInputElement>("text").value); });
 $<HTMLInputElement>("replay").addEventListener("change", (e) => setReplay((e.target as HTMLInputElement).checked));
+$<HTMLSelectElement>("mic-lang").value = "en-IN"; // always start in English
 $("reset").addEventListener("click", () => void resetSession());
 setReplay(replay);
 setInterval(tickClock, 15_000);
