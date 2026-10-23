@@ -1,0 +1,43 @@
+{
+  "_note": "Hand-written from the documented addon.json fields because `alexa-ai new mcp` could not be run (the CLI install was blocked, see docs/FRICTION_LOG.md F6). Field names follow developer.amazon.com/docs/alexaplus/add-ons; check them against the CLI's generated skeleton before deploying.",
+  "type": "mcp",
+  "locale": "en-IN",
+  "mcpServerUrl": "https://nd0fnh12rd.execute-api.ap-south-1.amazonaws.com/mcp",
+  "name": {
+    "value": "Dhuaan Smoke Forecast"
+  },
+  "shortDescription": "Find out when farm-fire smoke will reach your area in north India, how heavy it will be and where it's coming from.",
+  "fullDescription": "Every October and November, smoke from crop-residue fires in Punjab and Haryana drifts over Delhi NCR and dozens of towns, often arriving in the middle of the night. Dhuaan forecasts it before it arrives.\n\nAsk about any area in Delhi NCR, Punjab, Haryana, Chandigarh or western Uttar Pradesh, in English or Hindi:\n• \"Will smoke from farm fires reach Rohini tonight?\" — when smoke arrives, when it is heaviest, when it clears, and which districts' fires it comes from.\n• \"When's the cleanest time for a walk in Gurugram tomorrow?\" — the best window for a walk, a run, children's outdoor play or an outdoor event, and the hours to avoid.\n• \"Should my kids' school in Noida hold assembly outdoors tomorrow?\" — a clear indoor or outdoor call for the school morning.\n• \"When should I open the windows?\" — when to air out the house and when to close up before smoke arrives.\n• \"How many farm fires did satellites see today?\" — today's fire count and the fire clusters putting smoke over the most people.\n\nOn Echo Show, you also get a 36-hour smoke timeline card.\n\nHow it works: Dhuaan takes NASA VIIRS satellite fire detections and GFS wind forecasts, releases a smoke \"puff\" from every fire cluster each hour, and follows each puff through the wind for 36 hours. It re-runs every three hours.\n\nGood to know: the Smoke Index is a relative forecast of farm-fire smoke, not an AQI or PM2.5 measurement, and local traffic, dust and industry are not included. It is not medical advice; follow official advisories. Dhuaan does not ask for or store personal information. It is open source (MIT).",
+  "examplePhrases": [
+    "Will smoke from farm fires reach Rohini tonight?",
+    "When's the cleanest time for a walk in Gurugram tomorrow?",
+    "Where is the smoke over Delhi coming from today?",
+    "Should my kids' school in Noida hold assembly outdoors tomorrow?"
+  ],
+  "privacyPolicyUrl": "https://nd0fnh12rd.execute-api.ap-south-1.amazonaws.com/privacy",
+  "termsOfUseUrl": "https://nd0fnh12rd.execute-api.ap-south-1.amazonaws.com/terms",
+  "distributionCountries": [
+    "IN"
+  ],
+  "icons": {
+    "light": {
+      "72": "https://raw.githubusercontent.com/VividhDesign/dhuaan-alexa/main/addon/assets/icon-72.png",
+      "64": "https://raw.githubusercontent.com/VividhDesign/dhuaan-alexa/main/addon/assets/icon-64.png",
+      "88": "https://raw.githubusercontent.com/VividhDesign/dhuaan-alexa/main/addon/assets/icon-88.png",
+      "126": "https://raw.githubusercontent.com/VividhDesign/dhuaan-alexa/main/addon/assets/icon-126.png",
+      "180": "https://raw.githubusercontent.com/VividhDesign/dhuaan-alexa/main/addon/assets/icon-180.png",
+      "241": "https://raw.githubusercontent.com/VividhDesign/dhuaan-alexa/main/addon/assets/icon-241.png"
+    }
+  },
+  "carouselImages": [
+    {
+      "url": "https://raw.githubusercontent.com/VividhDesign/dhuaan-alexa/main/addon/assets/carousel-600x900.png",
+      "altText": "Echo Show card showing when farm-fire smoke will reach Rohini tonight"
+    }
+  ],
+  "bannerImages": [
+    {
+      "url": "https://raw.githubusercontent.com/VividhDesign/dhuaan-alexa/main/addon/assets/banner-1200x600.png"
+    }
+  ]
+}
