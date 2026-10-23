@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Eval harness for the Dhuaan MCP server with a stand-in orchestrator (Nova 2 Lite via Strands)"
 requires-python = ">=3.12,<3.13"
 dependencies = [
-    "strands-agents==1.62.0",
+    "strands-agents[ollama]==1.62.0",
     "mcp==2.1.1",
     "boto3==1.43.118",
 ]

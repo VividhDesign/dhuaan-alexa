@@ -24,6 +24,8 @@ const language = z.enum(["en", "hi"]).optional().describe("Reply language; use '
 const place = z.string().min(2).max(80)
   .describe("Area, locality or city in English or Hindi, e.g. 'Rohini', 'Sector 62 Noida', 'Gurugram', 'पटियाला'.");
 const ui = { ui: { resourceUri: CARD_URI } };
+const replay_date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional()
+  .describe("Only to replay a past day, e.g. '2025-10-31'. Omit for the live forecast.");
 
 export type ToolLogger = (line: Record<string, unknown>) => void;
 const defaultLogger: ToolLogger = (line) => console.log(JSON.stringify(line));
@@ -58,8 +60,7 @@ export function createServer(log: ToolLogger = defaultLogger): McpServer {
     inputSchema: z.object({
       place,
       language,
-      replay_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional()
-        .describe("Only to replay a past day, e.g. '2025-10-31'. Omit for the live forecast."),
+      replay_date,
     }),
     outputSchema: ResultSchema,
     annotations,
@@ -78,6 +79,7 @@ export function createServer(log: ToolLogger = defaultLogger): McpServer {
       duration_hours: z.number().int().min(1).max(6).optional().describe("How long, in hours (default depends on the activity)"),
       day: z.enum(["today", "tomorrow", "next_36h"]).default("next_36h"),
       language,
+      replay_date,
     }),
     outputSchema: ResultSchema,
     annotations,
@@ -93,6 +95,7 @@ export function createServer(log: ToolLogger = defaultLogger): McpServer {
       state: z.enum(["all", "Punjab", "Haryana", "Uttar Pradesh", "Rajasthan"]).default("all"),
       top: z.number().int().min(1).max(10).default(5),
       language,
+      replay_date,
     }),
     outputSchema: ResultSchema,
     annotations,

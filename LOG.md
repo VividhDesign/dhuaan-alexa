@@ -1,7 +1,7 @@
 # Build log: Dhuaan for Alexa+ (23 Oct 2026, IST)
 
 ## Now
-Waiting on Vividh for the Alexa CLI setup (`scripts/alexa-setup.sh`). Subagent C (eval harness) running. Next: README, friction log.
+Plan B (decided 19:47): a local web "Alexa+ experience simulator", the track's own suggested path ("simulate an Alexa+ experience using your preferred agentic tools via a web app", Devpost resources page). Strands Agents + gemma4:12b (Ollama, local) as the orchestrator, Amazon Polly Kajal for voice, and the Echo Show card in a real MCP Apps host (AppBridge). Subagent A: sim frontend. Subagent C: eval on Gemma (v1), then the sim backend.
 
 ## Done
 - 19:18 Read plan. Fetched live data: run generated 16:19 IST, fires_24h 1012, 400 clusters. All 29 places none/light (max index 29, Jalandhar). No moderate smoke anywhere today, so the heavy demo uses replay 2025-10-31.
@@ -21,6 +21,10 @@ Waiting on Vividh for the Alexa CLI setup (`scripts/alexa-setup.sh`). Subagent C
 
 - 19:39 Vividh ran `scripts/alexa-setup.sh`. The inline policy was added; AssumeRole was denied by Amazon's role (friction F6). vividh-cli already has AdministratorAccess, so the denial is the role's trust policy. `@alexa-ai/cli` isn't on public npm (404). **G0 failed → Plan B.**
 - 19:38 Subagent C: eval harness built. Bedrock returns "Operation not allowed" for every model (NOT_AUTHORIZED, friction F5).
+- 19:44 Devpost resources page, Alexa+ track: "Build a working MCP (Model Context Protocol) integration on the open standards for Agent Skills and Streamable HTTP transports. You can simulate an Alexa+ experience using your preferred agentic tools via a web app." No mention of the alexa-ai CLI. The Alexa+ support page says SAs and cases have a typical response time of two business days, so no allowlisting tonight.
+- 19:46 Bedrock probed in us-east-1, us-west-2 and ap-south-1 (Nova Micro, Lite, 2 Lite): all "Operation not allowed". The account plan is PAID.
+- 19:47 Local models: Ollama 0.40.5 with gemma4:12b, qwen3.5 (9.7B) and llama3.2. Probe with the live tool schemas + server instructions (5 utterances): gemma4:12b called the right tool 5/5 (0.6–1.6 s warm). qwen3.5 answered 3 of 5 from memory without tools (hallucinated times and counts), so it's rejected.
+- 19:51 `replay_date` added to find_clean_air_window and get_farm_fire_activity; deployed. Replay 2025-10-31: Dwarka school_morning → "move assembly and PE indoors"; fires 1209 (366 Punjab, 28 Haryana).
 
 ## Blocked
 - Alexa CLI: Amazon's role doesn't trust our account (F6). No fix tonight.

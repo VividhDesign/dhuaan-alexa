@@ -119,11 +119,11 @@ export async function getSmokeForecast(a: { place: string; language?: Lang; repl
 }
 
 export async function findCleanAirWindow(a: {
-  place: string; activity?: Activity; duration_hours?: number; day?: Day; language?: Lang;
+  place: string; activity?: Activity; duration_hours?: number; day?: Day; language?: Lang; replay_date?: string;
 }): Promise<ToolOutput> {
   const lang = a.language ?? "en";
   const activity = a.activity ?? "walk";
-  const pf = await placeForecast(a.place, lang);
+  const pf = await placeForecast(a.place, lang, a.replay_date);
   if (isOutput(pf)) return pf;
   const { fields } = forecastFields(pf, lang, activity === "school_morning" ? "school" : "resident");
   const w = findWindow({ series: fields.series.map((p) => p.index), times: pf.times, now: pf.now, activity,
@@ -136,11 +136,11 @@ export async function findCleanAirWindow(a: {
   };
 }
 
-export async function getFarmFireActivity(a: { state?: string; top?: number; language?: Lang }): Promise<ToolOutput> {
+export async function getFarmFireActivity(a: { state?: string; top?: number; language?: Lang; replay_date?: string }): Promise<ToolOutput> {
   const lang = a.language ?? "en";
   const state = a.state ?? "all";
   const wall = deps.clock();
-  const d = await getLatest();
+  const d = a.replay_date ? await getReplay(a.replay_date) : await getLatest();
   const h = d.hotspots;
   const top = [...h.clusters]
     .filter((c) => state === "all" || c.state === state)
@@ -153,7 +153,7 @@ export async function getFarmFireActivity(a: { state?: string; top?: number; lan
   return {
     text: summary[lang],
     structured: {
-      kind: "fires", ...base(lang), now: wall, run: runInfo(d, wall), summary,
+      kind: "fires", ...base(lang), now: nowFor(d, wall), run: runInfo(d, wall), summary,
       fires: { fires_24h: h.totals.fires_24h, by_state: h.totals.by_state, clusters: d.meta.clusters,
         last_pass_utc: d.meta.last_pass_utc, top25_share_delhi_pct: h.top25_share_delhi_pct ?? null, state, top },
     },
