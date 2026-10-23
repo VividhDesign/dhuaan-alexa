@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dhuaan · Alexa+ experience simulator (unofficial)</title>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="logo" id="logo" aria-hidden="true"></span>
+    <h1>Dhuaan <span class="dot-sep">·</span> Alexa+ experience simulator <span class="unofficial">(unofficial)</span></h1>
+  </div>
+  <div class="chips">
+    <span class="chip" id="chip-mcp">MCP 2025-11-25 · Streamable HTTP</span>
+    <span class="chip" id="chip-agent">Agent: Strands + …</span>
+    <span class="chip" id="chip-voice">Voice: Amazon Polly (Kajal)</span>
+    <label class="toggle" title="Answer from the archived run of 31 Oct 2025, 8:30 PM IST">
+      <input type="checkbox" id="replay" role="switch" />
+      <span class="track" aria-hidden="true"><span class="knob"></span></span>
+      <span>Replay: 31 Oct 2025, 8:30 PM IST</span>
+    </label>
+  </div>
+</header>
+<div class="banner" id="banner" hidden>
+  <strong>Replay mode</strong> · answers come from the archived forecast run of <strong>31 Oct 2025, 8:30 PM IST</strong>, not today's live data
+</div>
+<main class="layout">
+  <section class="stage" aria-label="Smart display">
+    <div class="device" id="device">
+      <div class="screen" id="screen">
+        <div class="idle" id="idle">
+          <div class="idle-time" id="idle-time">--:--</div>
+          <div class="idle-date" id="idle-date"></div>
+          <div class="idle-try">Try: <q>Will smoke reach Rohini tonight?</q></div>
+        </div>
+      </div>
+    </div>
+    <div class="caption" id="caption" aria-live="polite"><span class="muted">Ask a question on the right, or tap the mic.</span></div>
+    <div class="host-note" id="host-note">Card: MCP App <code>ui://dhuaan/forecast-card.html</code> rendered with ext-apps <code>AppBridge</code> in a sandboxed iframe</div>
+  </section>
+  <section class="chat" aria-label="Conversation">
+    <div class="chat-head">
+      <span>Conversation</span>
+      <button type="button" class="ghost" id="reset">New session</button>
+    </div>
+    <div class="log" id="log" aria-live="polite"></div>
+    <form class="composer" id="form" autocomplete="off">
+      <span class="mic-wrap" id="mic-wrap" hidden>
+        <button type="button" class="mic" id="mic" aria-label="Speak your question" title="Speak">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg>
+        </button>
+        <select id="mic-lang" aria-label="Speech language"><option value="en-IN">en-IN</option><option value="hi-IN">hi-IN</option></select>
+      </span>
+      <input id="text" type="text" placeholder="Ask about smoke, e.g. Will smoke reach Rohini tonight?" aria-label="Your question" />
+      <button type="submit" id="send">Send</button>
+    </form>
+  </section>
+</main>
+<script type="module" src="./sim.ts"></script>
+</body>
+</html>

@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vite build && vite build --mode preview",
+    "build": "vite build && vite build --mode preview && vite build --mode sim",
     "build:ui": "npm run build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "sim:mock": "node sim-mock.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/client": "2.3.1",

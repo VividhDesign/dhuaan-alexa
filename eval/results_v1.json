@@ -1,0 +1,824 @@
+{
+  "runs": [
+    {
+      "tag": "v1",
+      "started": "2026-10-23 19:52",
+      "model_id": "ollama:gemma4:12b",
+      "model_label": "gemma4:12b via Ollama, local",
+      "url": "https://nd0fnh12rd.execute-api.ap-south-1.amazonaws.com/mcp",
+      "orchestrator": "stand-in orchestrator (gemma4:12b via Ollama, local; Strands Agents)",
+      "system_prompt": "You are a voice assistant like Alexa+ in India. Use the tools when relevant. Reply in the user's language in at most two short sentences suitable for speech.\n\nDhuaan forecasts farm-fire smoke for north India (Punjab, Haryana, Delhi NCR, Chandigarh and western Uttar Pradesh) for the next 36 hours, updated every 3 hours from NASA VIIRS fire detections and GFS winds. All times are India Standard Time. The Smoke Index (0–100) is relative; it is not AQI or PM2.5, so describe smoke as none, light, moderate or heavy and never quote it as AQI. Reply in the user's language (Hindi or English). If the user has not named a place, ask which area or city they mean before calling a tool. Lead with the answer (will smoke come, and when), then where it comes from, then one protective step. This is not medical advice.",
+      "summary": {
+        "n": 24,
+        "errors": 0,
+        "tool_acc": 95.8,
+        "place_acc": 100.0,
+        "place_n": 18,
+        "activity_acc": 100.0,
+        "activity_n": 11,
+        "kind_acc": 80.0,
+        "time_pct": 52.6,
+        "time_n": 19,
+        "wall_p50_s": 2.89,
+        "wall_p95_s": 3.69,
+        "tool_p50_s": 0.116,
+        "tool_p95_s": 0.2,
+        "by_lang": {
+          "en": 88.9,
+          "hi": 100.0,
+          "hinglish": 100.0
+        }
+      },
+      "rows": [
+        {
+          "id": "en01",
+          "lang": "en",
+          "text": "Will smoke reach Rohini tonight?",
+          "expect_tool": "get_smoke_forecast",
+          "expect_place": "rohini",
+          "expect_activity": null,
+          "expect_kind": null,
+          "answer": "No farm-fire smoke is expected in Rohini tonight. You can continue your outdoor plans as usual.",
+          "calls": [
+            {
+              "name": "get_smoke_forecast",
+              "input": {
+                "language": "en",
+                "place": "Rohini"
+              },
+              "tool_s": 0.138,
+              "ms": 138,
+              "kind": "forecast",
+              "place_id": "rohini",
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.308,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": null,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "en02",
+          "lang": "en",
+          "text": "How bad will the air be in Gurgaon tomorrow morning?",
+          "expect_tool": "get_smoke_forecast",
+          "expect_place": "gurugram",
+          "expect_activity": null,
+          "expect_kind": null,
+          "answer": "No farm-fire smoke is expected in Gurugram tomorrow morning. You can enjoy the outdoors, but it's always good to keep a mask handy if you're sensitive to dust.",
+          "calls": [
+            {
+              "name": "get_smoke_forecast",
+              "input": {
+                "language": "en",
+                "place": "Gurugram"
+              },
+              "tool_s": 0.122,
+              "ms": 122,
+              "kind": "forecast",
+              "place_id": "gurugram",
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.768,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": null,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "en03",
+          "lang": "en",
+          "text": "When can my kids play outside in Noida tomorrow?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "noida",
+          "expect_activity": "kids_play",
+          "expect_kind": null,
+          "answer": "The best time for your kids to play outside in Noida tomorrow is between 12:30 PM and 2:30 PM. It's a good idea to keep them indoors during the early morning and late evening when smoke levels are higher.",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "kids_play",
+                "day": "tomorrow",
+                "language": "en",
+                "place": "Noida"
+              },
+              "tool_s": 0.199,
+              "ms": 199,
+              "kind": "window",
+              "place_id": "noida",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.739,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "en04",
+          "lang": "en",
+          "text": "When should I open the windows in Faridabad?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "faridabad",
+          "expect_activity": "ventilate",
+          "expect_kind": null,
+          "answer": "The best time to open your windows in Faridabad is tomorrow between 11:30 AM and 1:30 PM. Try to keep them closed during other times to avoid smoke.",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "ventilate",
+                "day": "next_36h",
+                "language": "en",
+                "place": "Faridabad"
+              },
+              "tool_s": 0.21,
+              "ms": 210,
+              "kind": "window",
+              "place_id": "faridabad",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.488,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "en05",
+          "lang": "en",
+          "text": "Should our school in Dwarka hold assembly outdoors tomorrow?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "dwarka",
+          "expect_activity": "school_morning",
+          "expect_kind": null,
+          "answer": "Yes, you can hold the school assembly outdoors tomorrow morning as the air is expected to be clear of farm-fire smoke. It's always a good idea to keep some masks handy just in case.",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "school_morning",
+                "day": "tomorrow",
+                "language": "en",
+                "place": "Dwarka"
+              },
+              "tool_s": 0.117,
+              "ms": 117,
+              "kind": "window",
+              "place_id": "dwarka",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.284,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "en06",
+          "lang": "en",
+          "text": "How many stubble fires today?",
+          "expect_tool": "get_farm_fire_activity",
+          "expect_place": null,
+          "expect_activity": null,
+          "expect_kind": "fires",
+          "answer": "There were 1,228 farm fires detected in the last 24 hours, including 281 in Punjab and 22 in Haryana. The most significant smoke impact is expected from the cluster near Hafizabad.",
+          "calls": [
+            {
+              "name": "get_farm_fire_activity",
+              "input": {
+                "language": "en",
+                "state": "all"
+              },
+              "tool_s": 0.139,
+              "ms": 139,
+              "kind": "fires",
+              "place_id": null,
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.031,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": null,
+            "activity_ok": null,
+            "kind_ok": true,
+            "has_time": false
+          }
+        },
+        {
+          "id": "en07",
+          "lang": "en",
+          "text": "What's the best time to go for a run in Patiala tomorrow?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "patiala",
+          "expect_activity": "run",
+          "expect_kind": null,
+          "answer": "The best time for your run in Patiala tomorrow is between 12:30 PM and 1:30 PM. It's advisable to wear a mask if you feel any discomfort while outdoors.",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "run",
+                "day": "tomorrow",
+                "language": "en",
+                "place": "Patiala"
+              },
+              "tool_s": 0.164,
+              "ms": 164,
+              "kind": "window",
+              "place_id": "patiala",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.385,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "en08",
+          "lang": "en",
+          "text": "Will smoke reach Mumbai?",
+          "expect_tool": "get_smoke_forecast",
+          "expect_place": null,
+          "expect_activity": null,
+          "expect_kind": "out_of_area",
+          "answer": "I can only provide smoke forecasts for areas in North India, such as Delhi NCR, Punjab, Haryana, and Western Uttar Pradesh. Please let me know if you'd like to check the forecast for any of these locations.",
+          "calls": [],
+          "wall_s": 1.633,
+          "error": null,
+          "score": {
+            "tool_ok": false,
+            "place_ok": null,
+            "activity_ok": null,
+            "kind_ok": false,
+            "has_time": false
+          }
+        },
+        {
+          "id": "en09",
+          "lang": "en",
+          "text": "Is the air bad?",
+          "expect_tool": null,
+          "expect_place": null,
+          "expect_activity": null,
+          "expect_kind": "clarify",
+          "answer": "Could you please tell me which city or area you are asking about?",
+          "calls": [],
+          "wall_s": 0.616,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": null,
+            "activity_ok": null,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hi01",
+          "lang": "hi",
+          "text": "क्या आज रात रोहिणी में धुआँ आएगा?",
+          "expect_tool": "get_smoke_forecast",
+          "expect_place": "rohini",
+          "expect_activity": null,
+          "expect_kind": null,
+          "answer": "रोहिणी में आज रात धुआँ आने की संभावना नहीं है। बाहर निकलते समय सावधानी बरतें और अपनी सेहत का ध्यान रखें।",
+          "calls": [
+            {
+              "name": "get_smoke_forecast",
+              "input": {
+                "language": "hi",
+                "place": "Rohini"
+              },
+              "tool_s": 0.121,
+              "ms": 121,
+              "kind": "forecast",
+              "place_id": "rohini",
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.335,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": null,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hi02",
+          "lang": "hi",
+          "text": "पटियाला में खिड़कियाँ कब खोलूँ?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "patiala",
+          "expect_activity": "ventilate",
+          "expect_kind": null,
+          "answer": "पटियाला में खिड़कियाँ खोलने के लिए कल दोपहर 12:30 से 2:30 बजे का समय सबसे अच्छा है। इसके बाद भी अगले 36 घंटों तक धुआँ आने की संभावना कम है।",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "ventilate",
+                "day": "next_36h",
+                "language": "hi",
+                "place": "Patiala"
+              },
+              "tool_s": 0.108,
+              "ms": 108,
+              "kind": "window",
+              "place_id": "patiala",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.69,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "hi03",
+          "lang": "hi",
+          "text": "आज पंजाब में कितनी पराली जली?",
+          "expect_tool": "get_farm_fire_activity",
+          "expect_place": null,
+          "expect_activity": null,
+          "expect_kind": "fires",
+          "answer": "पिछले 24 घंटों में पंजाब में 281 खेतों में आग देखी गई है। Tarn Taran के पास वाले क्षेत्रों से निकलने वाला धुआँ सबसे अधिक प्रभावित हो सकता है।",
+          "calls": [
+            {
+              "name": "get_farm_fire_activity",
+              "input": {
+                "language": "hi",
+                "state": "Punjab"
+              },
+              "tool_s": 0.107,
+              "ms": 107,
+              "kind": "fires",
+              "place_id": null,
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.71,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": null,
+            "activity_ok": null,
+            "kind_ok": true,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hi04",
+          "lang": "hi",
+          "text": "कल सुबह गुरुग्राम में हवा कैसी रहेगी?",
+          "expect_tool": "get_smoke_forecast",
+          "expect_place": "gurugram",
+          "expect_activity": null,
+          "expect_kind": null,
+          "answer": "कल सुबह गुरुग्राम में खेतों के धुएं की वजह से हवा साफ रहेगी। बाहर निकलते समय अपनी सुविधा के अनुसार मास्क पहन सकते हैं।",
+          "calls": [
+            {
+              "name": "get_smoke_forecast",
+              "input": {
+                "language": "hi",
+                "place": "Gurugram"
+              },
+              "tool_s": 0.114,
+              "ms": 114,
+              "kind": "forecast",
+              "place_id": "gurugram",
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.316,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": null,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hi05",
+          "lang": "hi",
+          "text": "नोएडा में बच्चों को बाहर खेलने कब भेजूँ?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "noida",
+          "expect_activity": "kids_play",
+          "expect_kind": null,
+          "answer": "नोएडा में बच्चों को कल दोपहर 12:30 से 2:30 बजे के बीच बाहर खेलने के लिए सबसे अच्छा समय है। बाहर जाने से पहले मास्क का उपयोग करना एक अच्छा सुरक्षा उपाय है।",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "kids_play",
+                "day": "next_36h",
+                "language": "hi",
+                "place": "Noida"
+              },
+              "tool_s": 0.112,
+              "ms": 112,
+              "kind": "window",
+              "place_id": "noida",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.602,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "hi06",
+          "lang": "hi",
+          "text": "द्वारका में सैर के लिए सबसे अच्छा समय कब है?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "dwarka",
+          "expect_activity": "walk",
+          "expect_kind": null,
+          "answer": "द्वारका में सैर के लिए कल सुबह 11:30 से 12:30 के बीच का समय सबसे अच्छा है। बाहर निकलते समय मास्क पहनना एक अच्छा कदम होगा।",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "walk",
+                "day": "today",
+                "language": "hi",
+                "place": "Dwarka"
+              },
+              "tool_s": 0.162,
+              "ms": 162,
+              "kind": "window",
+              "place_id": "dwarka",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.307,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "hi07",
+          "lang": "hi",
+          "text": "फरीदाबाद में धुआँ कहाँ से आ रहा है?",
+          "expect_tool": "get_smoke_forecast",
+          "expect_place": "faridabad",
+          "expect_activity": null,
+          "expect_kind": null,
+          "answer": "अगले 36 घंटों में फरीदाबाद में खेतों की आग से धुआँ आने की संभावना नहीं है। बाहर निकलते समय सावधानी बरतें और मास्क का उपयोग करें।",
+          "calls": [
+            {
+              "name": "get_smoke_forecast",
+              "input": {
+                "language": "hi",
+                "place": "Faridabad"
+              },
+              "tool_s": 0.124,
+              "ms": 124,
+              "kind": "forecast",
+              "place_id": "faridabad",
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.68,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": null,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hi08",
+          "lang": "hi",
+          "text": "हरियाणा में आज कितने खेतों में आग लगी?",
+          "expect_tool": "get_farm_fire_activity",
+          "expect_place": null,
+          "expect_activity": null,
+          "expect_kind": "fires",
+          "answer": "पिछले 24 घंटों में हरियाणा में 22 खेतों में आग देखी गई है। गुरुग्राम के पास वाले क्षेत्रों में धुआँ अधिक हो सकता है, इसलिए बाहर निकलते समय मास्क पहनें।",
+          "calls": [
+            {
+              "name": "get_farm_fire_activity",
+              "input": {
+                "language": "hi",
+                "state": "Haryana"
+              },
+              "tool_s": 0.117,
+              "ms": 117,
+              "kind": "fires",
+              "place_id": null,
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.736,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": null,
+            "activity_ok": null,
+            "kind_ok": true,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hg01",
+          "lang": "hinglish",
+          "text": "Kal subah Noida mein smoke kitna hoga?",
+          "expect_tool": "get_smoke_forecast",
+          "expect_place": "noida",
+          "expect_activity": null,
+          "expect_kind": null,
+          "answer": "कल सुबह नोएडा में धुएं की कोई संभावना नहीं है। बाहर निकलते समय सावधानी बरतें और अपनी सुरक्षा का ध्यान रखें।",
+          "calls": [
+            {
+              "name": "get_smoke_forecast",
+              "input": {
+                "language": "hi",
+                "place": "Noida"
+              },
+              "tool_s": 0.108,
+              "ms": 108,
+              "kind": "forecast",
+              "place_id": "noida",
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.216,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": null,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hg02",
+          "lang": "hinglish",
+          "text": "Gurgaon mein walk ke liye best time kya hai?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "gurugram",
+          "expect_activity": "walk",
+          "expect_kind": null,
+          "answer": "Gurugram mein walk ke liye kal dopahar 2:30 se 3:30 baje tak ka samay sabse accha hai. Kripya bahar nikalte samay mask ka upyog karein.",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "walk",
+                "day": "today",
+                "language": "hi",
+                "place": "Gurugram"
+              },
+              "tool_s": 0.109,
+              "ms": 109,
+              "kind": "window",
+              "place_id": "gurugram",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.5,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "hg03",
+          "lang": "hinglish",
+          "text": "Rohini mein aaj raat dhuaan aayega kya?",
+          "expect_tool": "get_smoke_forecast",
+          "expect_place": "rohini",
+          "expect_activity": null,
+          "expect_kind": null,
+          "answer": "रोहिणी में आज रात धुआँ आने की उम्मीद नहीं है। बाहर निकलते समय सावधानी बरतें और अपनी सेहत का ध्यान रखें।",
+          "calls": [
+            {
+              "name": "get_smoke_forecast",
+              "input": {
+                "language": "hi",
+                "place": "Rohini"
+              },
+              "tool_s": 0.113,
+              "ms": 113,
+              "kind": "forecast",
+              "place_id": "rohini",
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.348,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": null,
+            "kind_ok": null,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hg04",
+          "lang": "hinglish",
+          "text": "Faridabad mein bacchon ko bahar khelne kab bhejun?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "faridabad",
+          "expect_activity": "kids_play",
+          "expect_kind": null,
+          "answer": "फ़रीदाबाद में बच्चों को कल सुबह 11:30 से 1:30 के बीच बाहर खेलने के लिए भेजा जा सकता है। बाहर जाने से पहले मास्क का उपयोग करना एक अच्छा सुरक्षा उपाय है।",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "kids_play",
+                "day": "next_36h",
+                "language": "hi",
+                "place": "Faridabad"
+              },
+              "tool_s": 0.112,
+              "ms": 112,
+              "kind": "window",
+              "place_id": "faridabad",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.622,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "hg05",
+          "lang": "hinglish",
+          "text": "Punjab mein aaj kitni parali jali?",
+          "expect_tool": "get_farm_fire_activity",
+          "expect_place": null,
+          "expect_activity": null,
+          "expect_kind": "fires",
+          "answer": "पिछले 24 घंटों में पंजाब में 281 खेतों में आग देखी गई है। Tarn Taran के पास वाले क्षेत्रों से सबसे अधिक धुआँ आने की संभावना है।",
+          "calls": [
+            {
+              "name": "get_farm_fire_activity",
+              "input": {
+                "language": "hi",
+                "state": "Punjab"
+              },
+              "tool_s": 0.112,
+              "ms": 112,
+              "kind": "fires",
+              "place_id": null,
+              "status": "success"
+            }
+          ],
+          "wall_s": 2.689,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": null,
+            "activity_ok": null,
+            "kind_ok": true,
+            "has_time": false
+          }
+        },
+        {
+          "id": "hg06",
+          "lang": "hinglish",
+          "text": "Dwarka mein ghar ki khidkiyan kab kholun?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "dwarka",
+          "expect_activity": "ventilate",
+          "expect_kind": null,
+          "answer": "द्वारका में आज शाम 7:30 से 9:30 के बीच खिड़कियाँ खोलना सबसे अच्छा रहेगा। इसके बाद भी अगले 36 घंटों तक हवा साफ रहने की उम्मीद है।",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "ventilate",
+                "day": "today",
+                "language": "hi",
+                "place": "Dwarka"
+              },
+              "tool_s": 0.11,
+              "ms": 110,
+              "kind": "window",
+              "place_id": "dwarka",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.374,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        },
+        {
+          "id": "hg07",
+          "lang": "hinglish",
+          "text": "Connaught Place mein kal subah jogging kab karun?",
+          "expect_tool": "find_clean_air_window",
+          "expect_place": "connaught_place",
+          "expect_activity": "run",
+          "expect_kind": null,
+          "answer": "कल दोपहर 12:30 से 1:30 के बीच दौड़ना सबसे अच्छा रहेगा। बाहर निकलते समय मास्क पहनना एक अच्छा कदम है।",
+          "calls": [
+            {
+              "name": "find_clean_air_window",
+              "input": {
+                "activity": "run",
+                "day": "tomorrow",
+                "language": "hi",
+                "place": "Connaught Place"
+              },
+              "tool_s": 0.106,
+              "ms": 106,
+              "kind": "window",
+              "place_id": "connaught_place",
+              "status": "success"
+            }
+          ],
+          "wall_s": 3.021,
+          "error": null,
+          "score": {
+            "tool_ok": true,
+            "place_ok": true,
+            "activity_ok": true,
+            "kind_ok": null,
+            "has_time": true
+          }
+        }
+      ]
+    }
+  ]
+}

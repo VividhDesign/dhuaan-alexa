@@ -159,11 +159,16 @@ export function firesSummary(f: { n: number; by_state: Record<string, number>; s
     head = hi ? `पिछले 24 घंटे में सैटेलाइट ने ${st(f.state)} में ${f.n} खेतों की आग देखी।` : `Satellites saw ${f.n} farm fires in ${f.state} in the last 24 hours.`;
   } else {
     const pb = f.by_state["Punjab"] ?? 0, hr = f.by_state["Haryana"] ?? 0;
-    head = hi ? `पिछले 24 घंटे में सैटेलाइट ने ${f.n} खेतों की आग देखी, जिनमें ${pb} पंजाब और ${hr} हरियाणा में।`
-      : `Satellites saw ${f.n} farm fires in the last 24 hours, ${pb} in Punjab and ${hr} in Haryana.`;
+    head = hi ? `पिछले 24 घंटे में सैटेलाइट ने ${f.n} खेतों की आग देखी, जिनमें ${pb} भारतीय पंजाब और ${hr} हरियाणा में।`
+      : `Satellites saw ${f.n} farm fires in the last 24 hours across the region, ${pb} in Indian Punjab and ${hr} in Haryana.`;
   }
   const t = f.top[0];
   if (!t) return head;
+  if (t.state === "Pakistan Punjab") {
+    const near = t.label.replace(/^near /, "");
+    return head + (hi ? ` सबसे ज़्यादा लोगों तक धुआँ सीमा पार ${near} के पास, पाकिस्तान के पंजाब में, के क्लस्टर से पहुँचेगा।`
+      : ` The cluster putting smoke over the most people is across the border near ${near}, in Pakistan's Punjab.`);
+  }
   return head + (hi ? ` सबसे ज़्यादा लोगों तक धुआँ ${t.label.replace(/^near /, "")} (${st(t.state)}) के पास के क्लस्टर से पहुँचेगा।`
     : ` The cluster putting smoke over the most people is ${t.label}, ${t.state}.`);
 }

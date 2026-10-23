@@ -136,3 +136,8 @@ b { font-weight: 700; }
 }
 .fires-grid { align-content: center; align-items: start; }
 .msg { max-width: 22em; }
+
+/* replay badge (archived run) */
+.head-right { display: flex; flex-direction: column; align-items: flex-end; gap: .4em; }
+.replay { display: inline-block; font-size: var(--fs-label); font-weight: 750; color: #0B0F14; background: #FBBF24;
+  border-radius: 6px; padding: .15em .6em; white-space: nowrap; }

@@ -1,7 +1,7 @@
-"""Eval: does a stand-in orchestrator (Nova 2 Lite via Strands) pick the right Dhuaan tools?
+"""Eval: does a stand-in orchestrator (Strands Agents + an LLM) pick the right Dhuaan tools?
 
 Usage:
-  uv run run_eval.py --url <MCP_URL> --out results.md [--tag v1] [--model <id>]
+  uv run run_eval.py --url <MCP_URL> --out results.md [--tag v1] [--model ollama:gemma4:12b | <bedrock id>]
 
 Runs are kept in results.json (keyed by tag) and results.md is regenerated with every run,
 so v1 and v2 both stay in the report.
@@ -17,7 +17,8 @@ import statistics
 import sys
 from pathlib import Path
 
-from agent_common import DEFAULT_MODEL, DEFAULT_URL, ORCHESTRATOR_NAME, REGION, make_mcp_client, pick_model, run_one
+from agent_common import (DEFAULT_MODEL, DEFAULT_URL, REGION, build_system_prompt, make_mcp_client, model_label,
+                          orchestrator_label, pick_model, run_one)
 
 HERE = Path(__file__).parent
 TIME_RE = re.compile(r"\b\d{1,2}:\d{2}\b|बजे")
@@ -100,8 +101,9 @@ def render(runs: list[dict]) -> str:
     out = [
         "# Dhuaan tool-selection eval",
         "",
-        f"Orchestrator: **{ORCHESTRATOR_NAME}**. This is a stand-in that tests whether an LLM "
-        "picks the right MCP tools and arguments; it is not Alexa+.",
+        "Orchestrator: a **stand-in orchestrator** (Strands Agents + the model named per run). It tests whether an LLM "
+        "picks the right MCP tools and arguments; it is not Alexa+. System prompt = the §11.2 stand-in prompt "
+        "plus the MCP server's `instructions` from initialize.",
         "",
         "## Summary",
         "",
@@ -111,7 +113,7 @@ def render(runs: list[dict]) -> str:
     for run in runs:
         s = run["summary"]
         out.append(
-            f"| {run['tag']} | {run['started']} | `{run['model_id']}` | {s['n']} | {fmt(s['tool_acc'], '%')} | "
+            f"| {run['tag']} | {run['started']} | {run.get('model_label', run['model_id'])} | {s['n']} | {fmt(s['tool_acc'], '%')} | "
             f"{fmt(s['place_acc'], '%')} (n={s['place_n']}) | {fmt(s['activity_acc'], '%')} (n={s['activity_n']}) | "
             f"{fmt(s['kind_acc'], '%')} | {fmt(s['time_pct'], '%')} (n={s['time_n']}) | "
             f"{fmt(s['wall_p50_s'])} / {fmt(s['wall_p95_s'])} | {fmt(s['tool_p50_s'])} / {fmt(s['tool_p95_s'])} | {s['errors']} |"
@@ -162,7 +164,7 @@ def main() -> int:
     a = ap.parse_args()
 
     model_id = pick_model(a.model, REGION)
-    print(f"model: {model_id}", file=sys.stderr)
+    print(f"model: {model_id} ({model_label(model_id)})", file=sys.stderr)
     utts = [json.loads(l) for l in Path(a.utterances).read_text().splitlines() if l.strip()]
     if a.limit:
         utts = utts[: a.limit]
@@ -171,8 +173,9 @@ def main() -> int:
     rows = []
     with make_mcp_client(a.url) as client:
         tools = client.list_tools_sync()
+        system_prompt = build_system_prompt(client.server_instructions)
         for u in utts:
-            r = run_one(tools, model_id, u["text"], REGION)
+            r = run_one(tools, model_id, u["text"], system_prompt, REGION)
             row = {**u, **r}
             row["score"] = score(u, r)
             rows.append(row)
@@ -180,8 +183,9 @@ def main() -> int:
             print(f"{u['id']:5} tool={ok(s['tool_ok'])} place={ok(s['place_ok'])} act={ok(s['activity_ok'])} "
                   f"{r['wall_s']:5.1f}s {[c['name'] for c in r['calls']]} {(r['error'] or r['answer'])[:80]}", file=sys.stderr)
 
-    run = {"tag": a.tag, "started": started, "model_id": model_id, "url": a.url,
-           "orchestrator": ORCHESTRATOR_NAME, "summary": summarize(rows), "rows": rows}
+    run = {"tag": a.tag, "started": started, "model_id": model_id, "model_label": model_label(model_id), "url": a.url,
+           "orchestrator": orchestrator_label(model_id), "system_prompt": system_prompt,
+           "summary": summarize(rows), "rows": rows}
     out_md = Path(a.out)
     out_json = out_md.with_suffix(".json")
     data = {"runs": []}

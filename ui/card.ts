@@ -11,7 +11,7 @@ interface Card {
   language: Lang;
   place?: { id?: string; name?: I18n; lat?: number; lon?: number };
   now?: number;
-  run?: { generated_at?: number; last_pass_utc?: number; fires_24h?: number; stale?: boolean };
+  run?: { generated_at?: number; last_pass_utc?: number; fires_24h?: number; stale?: boolean; replay_date?: string | null };
   level_24h?: Level | null;
   light_from?: number | null; arrival?: number | null; clears?: number | null;
   peak?: { t: number; index: number; level?: Level } | null;
@@ -85,6 +85,18 @@ function pill(level: Level, lang: Lang, big = true): string {
     <span class="dot" aria-hidden="true"></span>${esc(T[lang].level[level])}</span>`;
 }
 
+/** "2025-10-31" -> "Replay · 31 Oct 2025" badge, shown when the server answers from an archived run. */
+function replayBadge(c: Card, lang: Lang): string {
+  const d = c.run?.replay_date;
+  if (!d) return "";
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d);
+  const label = m
+    ? new Intl.DateTimeFormat("en-GB", { timeZone: "UTC", day: "numeric", month: "short", year: "numeric" })
+        .format(Date.UTC(+m[1], +m[2] - 1, +m[3]))
+    : d;
+  return `<span class="replay">${lang === "hi" ? "रीप्ले" : "Replay"} · ${esc(label)}</span>`;
+}
+
 function header(c: Card, lang: Lang, right: string): string {
   const en = c.place?.name?.en ?? "";
   const hi = c.place?.name?.hi ?? "";
@@ -93,7 +105,7 @@ function header(c: Card, lang: Lang, right: string): string {
   return `<header class="head">
     <div class="place"><h1 class="headline" ${lang === "hi" ? 'lang="hi"' : ""}>${esc(main)}</h1>
       ${sub ? `<p class="sub" ${lang === "hi" ? "" : 'lang="hi"'}>${esc(sub)}</p>` : ""}</div>
-    <div class="head-right">${right}</div></header>`;
+    <div class="head-right">${right}${replayBadge(c, lang)}</div></header>`;
 }
 
 function footer(c: Card, lang: Lang): string {
@@ -222,7 +234,7 @@ function renderFires(c: Card, lang: Lang): string {
     `<li><span class="rank">${i + 1}</span><span class="cl"><b>${esc(x.district ?? x.label)}</b> <span class="muted">${esc(st(x.state ?? ""))} · ${x.n_fires ?? 0} ${lang === "hi" ? "आग" : x.n_fires === 1 ? "fire" : "fires"}</span></span><b class="ph">${peopleHours(x.impact_people_hours ?? 0)} <span class="muted">${esc(t.peopleHours)}</span></b></li>`).join("");
   return `<header class="head"><div class="place"><h1 class="headline">${esc(t.firesTitle)}</h1>
       <p class="sub">${esc(c.place?.name?.[lang] ?? c.place?.name?.en ?? "")}</p></div>
-    <div class="head-right"><div class="bignum">${total.toLocaleString("en-IN")}</div><div class="label">${esc(t.fires24)}</div></div></header>
+    <div class="head-right">${replayBadge(c, lang)}<div class="bignum">${total.toLocaleString("en-IN")}</div><div class="label">${esc(t.fires24)}</div></div></header>
     <div class="fires-grid">
       <section><ul class="states">${stateRows}</ul></section>
       <section><div class="label">${esc(t.topClusters)}</div><ol class="top">${top}</ol></section>
