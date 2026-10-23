@@ -8,7 +8,9 @@ Built for the Amazon Developer Hackathon "Build, Ship, Shape" (Alexa+ track) on 
 
 ![Echo Show card: smoke forecast timeline](docs/img/card-forecast-1280x800.png)
 
-<!-- SIM_SCREENSHOT -->
+![Alexa+ experience simulator](docs/img/sim-forecast.png)
+
+*Alexa+ experience simulator (unofficial): Strands agent + Amazon Polly + MCP Apps card, replaying the evening of 31 Oct 2025.*
 
 ## Try it in 60 seconds
 
@@ -75,9 +77,9 @@ flowchart LR
     APIGW[API Gateway HTTP API<br/>/mcp · /privacy · /terms] --> L[Lambda Node 22 arm64<br/>MCP server · Streamable HTTP 2025-11-25<br/>tools + MCP Apps card]
     L -->|cached 10 min| S3
     L --> LOC[Amazon Location<br/>geocode any locality]
-    EVAL[Eval harness<br/>Strands Agents + Bedrock Nova 2 Lite] --> APIGW
+    EVAL[Simulator and eval<br/>Strands Agents + Polly] --> APIGW
   end
-  ALEXA[Alexa+ add-on<br/>alexa-ai CLI · web simulator · Echo Show] --> APIGW
+  ALEXA[Alexa+ add-on package<br/>ready, not deployed] -.-> APIGW
 ```
 
 **The forecast in five lines** (details in the Dhuaan repo):
@@ -88,6 +90,38 @@ flowchart LR
 5. The pipeline re-runs every 3 hours on AWS and publishes JSON to S3. This server only reads it.
 
 **Does it work?** Dhuaan's replay of **31 Oct 2025** uses only the fires and winds known at 20:30 IST that evening. It put smoke over north-west Delhi around 03:30 IST, peaking near 06:30. The next day Delhi's AQI rose from 218 to 251, and the worst station was **Wazirpur, in north-west Delhi**. One day is not proof, but the direction and timing are consistent. [Open the replay](https://main.d300fn6sn0z3go.amplifyapp.com/?replay=2025-10-31).
+
+## The Alexa+ experience, simulated
+
+The hackathon's resources page describes the Alexa+ track as "build a working MCP (Model Context Protocol) integration on the open standards for Agent Skills and Streamable HTTP transports. You can simulate an Alexa+ experience using your preferred agentic tools via a web app." So the demo is a local web app, the **Alexa+ experience simulator (unofficial)**. It is not Alexa+ and it was not run on an Echo device.
+
+`browser (smart-display UI, MCP Apps host) → local sim_server.py (Strands agent + Amazon Polly) → this MCP server on Lambda`
+
+- **Agent:** [Strands Agents](https://strandsagents.com) with `gemma4:12b` running locally through Ollama. Bedrock Nova 2 Lite is the default model in the code, but Bedrock was blocked for our account ([F5](docs/FRICTION_LOG.md)), so every run here used Gemma.
+- **Skill:** the agent's system prompt is built from [`skills/dhuaan-smoke/SKILL.md`](skills/dhuaan-smoke/SKILL.md) (an Agent Skill) plus the server's own `instructions`.
+- **Voice:** Amazon Polly neural Kajal (`hi-IN` for Hindi, `en-IN` otherwise) speaks every answer.
+- **Card:** the Echo Show card renders in a sandboxed iframe through the MCP Apps `AppBridge`. A badge shows when a past day is being replayed.
+- When exactly one tool is called, the simulator speaks the tool's own summary, so numbers never drift. Follow-up turns use the model's wording.
+
+```bash
+ollama pull gemma4:12b
+cd ui && npm ci && npm run build
+cd ../eval && uv run sim_server.py --url https://nd0fnh12rd.execute-api.ap-south-1.amazonaws.com/mcp --model ollama:gemma4:12b
+# open http://127.0.0.1:8787 (Chrome; needs AWS credentials for Polly)
+```
+
+| # | Mode | Question | Result |
+|---|---|---|---|
+| 1 | Replay 31 Oct 2025 | Will smoke reach Rohini tonight? | Pass: arrives 3:30 AM, peaks 6:30 AM, from Sangrur and Mansa; card with replay badge |
+| 2 | Replay | Where is it coming from? (follow-up) | Partial: names Sangrur and Mansa; Kaithal (third source) is on the card, not in the spoken reply |
+| 3 | Replay | Should my kids' school in Dwarka hold assembly outside tomorrow? | Pass: "move assembly and PE indoors" |
+| 4 | Replay | कल सुबह नोएडा में धुआँ कैसा रहेगा? | Pass: Hindi reply, Hindi card labels, Kajal in hi-IN |
+| 5 | Replay | When should I open the windows in Faridabad? | Pass: open 2:30–4:30 PM, close by 4:30 PM |
+| 6 | Live | How many farm fires did satellites see today? | Pass: 1,228 fires (281 Indian Punjab, 22 Haryana), top cluster Hafizabad in Pakistan's Punjab |
+| 7 | Live | Will smoke reach Mumbai? | Pass: polite out-of-area reply |
+| 8 | Live | Is the air going to be bad tonight? | Pass: asks which area, no tool call |
+
+![Hindi answer with the card](docs/img/sim-hindi.png)
 
 ## MCP implementation details
 
@@ -123,13 +157,21 @@ From Vividh's laptop in India to ap-south-1, `tools/call get_smoke_forecast`, 50
 
 ## Evaluation
 
-<!-- EVAL_RESULTS -->
-*Pending: the results from `eval/run_eval.py` go here.*
+Does a language model pick the right tool? 24 utterances in English, Hindi and Hinglish, run through the same Strands agent as the simulator (`eval/run_eval.py`, temperature 0). Model: gemma4:12b via Ollama (local) through Strands. Bedrock Nova 2 Lite is the default in code; it was blocked for our account (F5). This is a stand-in orchestrator, not Alexa+.
+
+| Run | Tool accuracy | Place accuracy | Activity accuracy | Answers with a time | Agent p50 / p95 | Tool p50 / p95 |
+|---|---|---|---|---|---|---|
+| v1 | 95.8% (23/24) | 100% (18/18) | 100% (11/11) | 52.6% (10/19) | 2.89 / 3.69 s | 0.116 / 0.20 s |
+| v2 | 95.8% (23/24) | 100% (18/18) | 100% (11/11) | 52.6% (10/19) | 2.89 / 3.62 s | 0.085 / 0.17 s |
+
+By language (both runs): English 8/9, Hindi 8/8, Hinglish 7/7. v2 added "always call the tools" and "protective step only if smoke is expected" to the server instructions, and named the Indian and Pakistani sides of Punjab in the fires summary. The score did not move: the single miss is "Will smoke reach Mumbai?", where the model politely declines without calling the tool. The visible change is qualitative: "wear a mask" no longer appears when no smoke is expected. "Answers with a time" is low because the live data had no smoke arriving anywhere, so forecast answers had no time to give; window answers had one 10 of 11 times. We did not tune for the metric.
+
+Full tables: [`eval/results.md`](eval/results.md).
+
 
 ## Alexa+ add-on
 
-<!-- ADDON_RESULTS -->
-*Pending: the add-on ID, locale and web-simulator results go here.*
+The add-on package is in [`addon/addon-package/addon.json`](addon/addon-package/addon.json), with icons, carousel and banner hosted on GitHub, and live [privacy](https://nd0fnh12rd.execute-api.ap-south-1.amazonaws.com/privacy) and [terms](https://nd0fnh12rd.execute-api.ap-south-1.amazonaws.com/terms) pages. Deploy steps are in `scripts/alexa-setup.sh`. **It was not deployed and has not run on Alexa+.** Setup stops at the CLI install: Amazon's tools role rejects `AssumeRole` from our account, a step that needs account enablement. Details and the exact error are in [F6](docs/FRICTION_LOG.md), and in [`docs/FEEDBACK.md`](docs/FEEDBACK.md).
 
 ## AWS services used
 
@@ -141,8 +183,8 @@ From Vividh's laptop in India to ap-south-1, `tools/call get_smoke_forecast`, 50
 | Amazon Location Service (`geo-places` Geocode) | Verifies the locality gazetteer at build time and geocodes unknown places at request time |
 | Amazon EventBridge (Scheduler rule) | A 5-minute keep-warm ping that also refreshes the forecast cache |
 | Amazon CloudWatch Logs | One structured line per tool call, kept for 30 days |
-| Amazon Bedrock (Nova 2 Lite) + Strands Agents | Eval harness: a stand-in orchestrator that scores tool routing in English, Hindi and Hinglish |
-| Amazon Polly (neural voice Kajal) | Speaks answers in the simulated voice loop (`eval/chat.py`) |
+| Strands Agents SDK | Orchestrator in the simulator and the eval (Bedrock Nova 2 Lite is the default in code, but Bedrock was blocked for our account, so runs use gemma4:12b via Ollama) |
+| Amazon Polly (neural voice Kajal) | Speaks every simulator answer, in Hindi and English |
 | AWS SAM / CloudFormation | The whole stack as code (`infra/template.yaml`) |
 | Existing Dhuaan pipeline | EventBridge Scheduler → Step Functions → Lambda (fetch fires, fetch winds, model) → S3, with DynamoDB and SNS for alerts |
 
@@ -150,7 +192,7 @@ From Vividh's laptop in India to ap-south-1, `tools/call get_smoke_forecast`, 50
 
 | Before (10–11 Oct 2026) | During this hackathon (23 Oct 2026) |
 |---|---|
-| The Dhuaan forecast engine, AWS pipeline, web app and Telegram alerts, built for WeMakeDevs × AWS *Environmental Hacks* (**Runner-up**). It had no voice or Alexa integration. | Everything in this repo: the MCP server and its three tools (including the new clean-air-window and school-morning decision logic), place resolution and the gazetteer, the MCP Apps Echo Show card, the Alexa+ add-on package, the AWS SAM deployment, the tests, the eval harness and the docs |
+| The Dhuaan forecast engine, AWS pipeline, web app and Telegram alerts, built for WeMakeDevs × AWS *Environmental Hacks* (**Runner-up**). It had no voice or Alexa integration. | Everything in this repo: the MCP server and its three tools (including the new clean-air-window and school-morning decision logic), place resolution and the gazetteer, the MCP Apps Echo Show card, the Alexa+ add-on package, the AWS SAM deployment, the tests, the eval harness, the Alexa+ experience simulator, the Agent Skill and the docs |
 
 The existing Dhuaan stack was not modified. This server only reads its published data.
 
