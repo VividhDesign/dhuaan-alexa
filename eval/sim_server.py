@@ -118,6 +118,16 @@ class Sim:
         with self.lock:
             return self.sessions.setdefault(sid, s)
 
+    HINGLISH = re.compile(r"\b(kal|aaj|raat|subah|mein|kya|hai|hoga|kitna|kitni|kaise|kab|kahan|aayega|dhuaan|parali|ke liye|karo|batao)\b", re.I)
+
+    def with_language_hint(self, text: str) -> str:
+        """Pin the reply language to the user's latest message so earlier turns can't drag it elsewhere."""
+        if DEVANAGARI.search(text):
+            return text + "\n\n[Reply in Hindi, in Devanagari script.]"
+        if self.HINGLISH.search(text):
+            return text + "\n\n[Reply in Hindi, in Devanagari script, because the user is speaking Hinglish.]"
+        return text + "\n\n[Reply in English.]"
+
     def ask(self, sid: str, text: str, replay_date: str | None) -> dict:
         s = self.session(sid)
         with s["lock"]:
@@ -126,7 +136,7 @@ class Sim:
             rec.replay_date = replay_date
             t0 = time.perf_counter()
             try:
-                answer = str(s["agent"](text)).strip()
+                answer = str(s["agent"](self.with_language_hint(text))).strip()
             except Exception:
                 self.reset(sid)  # a failed turn can leave the history unusable; start that session fresh
                 raise
